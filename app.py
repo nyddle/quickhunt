@@ -21,6 +21,9 @@ def hello():
 def registration():
     return render_template('registration.html')
 
+@app.route('/login')
+def registration():
+    return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
