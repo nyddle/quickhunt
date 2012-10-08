@@ -3,7 +3,7 @@ from flask import Flask, render_template
 from flask import Flask, request, session, g, redirect, url_for, abort, \
              render_template, flash
 from flask.ext.mail import Mail
-#import mailing
+import mailing
 from werkzeug import check_password_hash, generate_password_hash
 
 SECRET_KEY = 'development key'
