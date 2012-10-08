@@ -57,7 +57,7 @@ username, email, pw_hash) values (?, ?, ?)''',
                  generate_password_hash(request.form['password'])])
             g.db.commit()
             """
-    flash('You were successfully registered and can login now')
+    flash('no luck ((')
     return render_template('registration.html', error=error)
 
 
