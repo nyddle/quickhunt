@@ -24,7 +24,7 @@ def send_awaiting_confirm_mail(user):
     """
     subject = "we're waiting for your confirmation!!"
     mail_to_be_sent = Message(subject=subject, recipients=[user['email']])
-    confirmation_url = url_for('activate_user', user_id=user['_id'], _external=true)
+    confirmation_url = url_for('activate_user', user_id=user['_id'], _external=True)
     mail_to_be_sent.body = "dear %s, click here to confirm: %s" % (user['email'], confirmation_url)
     from app import mail
     mail.send(mail_to_be_sent)
@@ -35,7 +35,7 @@ def send_subscription_confirm_mail(user):
     """
     subject = "we're waiting for your confirmation!!"
     mail_to_be_sent = Message(subject=subject, recipients=[user['email']])
-    confirmation_url = url_for('activate_user', user_id=user['_id'], _external=true)
+    confirmation_url = url_for('activate_user', user_id=user['_id'], _external=True)
     mail_to_be_sent.body = "dear %s, click here to confirm: %s" % (user['email'], confirmation_url)
     from app import mail
     mail.send(mail_to_be_sent)
