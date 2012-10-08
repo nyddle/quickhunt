@@ -32,14 +32,12 @@ def register():
             error = 'You have to enter a valid email address'
         elif not request.form['password']:
             error = 'You have to enter a password'
-        """    
-        elif request.form['password'] != request.form['password2']:
-            error = 'The two passwords do not match'
-        elif get_user_id(request.form['username']) is not None:
-            error = 'The username is already taken'
-        """
-        
-    else:
+        #elif request.form['password'] != request.form['password2']:
+        #    error = 'The two passwords do not match'
+        #elif get_user_id(request.form['username']) is not None:
+        #    error = 'The username is already taken'
+        else:
+            new_user = {'_id' : 'someid', 'email' : request.form['email'], 'password' : request.form['password'] }
             mailing.send_awaiting_confirm_mail(new_user)
             flash(messages.EMAIL_VALIDATION_SENT, 'info')
             #flash('You were successfully registered and can login now')
