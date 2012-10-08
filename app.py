@@ -44,7 +44,7 @@ def register():
             mailing.send_awaiting_confirm_mail(new_user)
             #flash(messages.EMAIL_VALIDATION_SENT, 'info')
             flash('You were successfully registered and can login now')
-            return render_template('registration.html', error=error) 
+            return render_template('login.html', error=error) 
 
             """
             g.db.execute('''insert into user (
