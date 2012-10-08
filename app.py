@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template
 from flask.ext.mail import Mail
-import mailing
+#import mailing
 from werkzeug import check_password_hash, generate_password_hash
 
 
@@ -38,9 +38,9 @@ def register():
         #    error = 'The username is already taken'
         else:
             new_user = {'_id' : 'someid', 'email' : request.form['email'], 'password' : request.form['password'] }
-            mailing.send_awaiting_confirm_mail(new_user)
-            flash(messages.EMAIL_VALIDATION_SENT, 'info')
-            #flash('You were successfully registered and can login now')
+            #mailing.send_awaiting_confirm_mail(new_user)
+            #flash(messages.EMAIL_VALIDATION_SENT, 'info')
+            flash('You were successfully registered and can login now')
             return redirect(url_for('login'))
 
             """
