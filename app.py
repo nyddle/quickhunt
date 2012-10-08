@@ -6,10 +6,11 @@ from flask.ext.mail import Mail
 #import mailing
 from werkzeug import check_password_hash, generate_password_hash
 
-
+SECRET_KEY = 'development key'
 
 
 app = Flask(__name__)
+app.config.from_object(__name__)
 mail = Mail(app)
 
 
@@ -84,6 +85,6 @@ def activate_user(user_id):
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port,debug=True)
 
 
