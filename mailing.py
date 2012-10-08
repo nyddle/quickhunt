@@ -1,4 +1,4 @@
-from flaskext.mail import Message
+from flask.ext.mail import Message
 
 def send_awaiting_confirm_mail(user):
     """
