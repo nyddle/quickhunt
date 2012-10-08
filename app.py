@@ -1,5 +1,7 @@
 import os
 from flask import Flask, render_template
+from flask import Flask, request, session, g, redirect, url_for, abort, \
+             render_template, flash
 from flask.ext.mail import Mail
 #import mailing
 from werkzeug import check_password_hash, generate_password_hash
@@ -23,8 +25,9 @@ def registration():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Registers the user."""
+    g.user = None
     if g.user:
-        return redirect(url_for('index'))
+        return render_template('registration.html')
     error = None
     if request.method == 'POST':
         if not request.form['email'] or \
@@ -38,10 +41,10 @@ def register():
         #    error = 'The username is already taken'
         else:
             new_user = {'_id' : 'someid', 'email' : request.form['email'], 'password' : request.form['password'] }
-            #mailing.send_awaiting_confirm_mail(new_user)
+            mailing.send_awaiting_confirm_mail(new_user)
             #flash(messages.EMAIL_VALIDATION_SENT, 'info')
             flash('You were successfully registered and can login now')
-            return redirect(url_for('login'))
+            return render_template('registration.html', error=error) 
 
             """
             g.db.execute('''insert into user (
@@ -50,7 +53,7 @@ username, email, pw_hash) values (?, ?, ?)''',
                  generate_password_hash(request.form['password'])])
             g.db.commit()
             """
-    return render_template('register.html', error=error)
+    return render_template('registration.html', error=error)
 
 
 
