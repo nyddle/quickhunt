@@ -3,9 +3,16 @@ from flask import Flask, render_template
 from flask import Flask, request, session, g, redirect, url_for, abort, \
              render_template, flash
 from flask.ext.mail import Mail, Message
+from flask.ext.login import (LoginManager, current_user, login_required,
+                            login_user, logout_user, UserMixin, AnonymousUser,
+                            confirm_login, fresh_login_required)
+import pymongo
+import datetime
 from werkzeug import check_password_hash, generate_password_hash
-
 from mongokit import Connection, Document
+from requests.auth import HTTPBasicAuth
+import requests
+
 
 
 SECRET_KEY = 'development key'
@@ -16,65 +23,36 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 mail = Mail(app)
 
+
 # connect to the database
 connection = Connection('mongodb://quickhunt:qhpassword@alex.mongohq.com:10013/app8222672')
-def max_length(length):
-    def validate(value):
-        if len(value) <= length:
-            return True
-        raise Exception('%s must be at most %s characters long' % length)
-    return validate
+users_collection =  connection.app8222672.users
+print users_collection
 
-@connection.register
-class User(Document):
-    structure = {
-        'password': unicode,
-        'email': unicode,
-    }
-    validators = {
-        'password': max_length(120),
-        'email': max_length(120)
-    }
-    required_fields = ['password', 'email']
-    use_dot_notation = True
-    def __repr__(self):
-        return '<User %r>' % (self.email)
+class User(UserMixin):
+    def __init__(self, name, id, active=True):
+        self.name = name
+        self.id = id
+        self.active = active
 
-    #database:app8222672
+    def is_active(self):
+        return self.active
 
 
-
-user =  connection.app8222672.users.User()
-user.passwors = u'password'
-user.email = u'email@host.com'
-user.save()
 
 @app.route('/')
 def hello():
     return render_template('registration.html')
 
 
-def send_awaiting_confirm_mail(user):
-    """
-    send the awaiting for confirmation mail to the user.
-    """
-    subject = "we're waiting for your confirmation!!"
-    mail_to_be_sent = Message(subject=subject, recipients=[user['email']], sender='nyddle@heroku.com')
-    confirmation_url = url_for('activate_user', user_id=user['_id'], _external=True)
-    mail_to_be_sent.body = "dear %s, click here to confirm: %s" % (user['email'], confirmation_url)
-    from app import mail
-    mail.send(mail_to_be_sent)
 
-def send_subscription_confirm_mail(user):
-    """
-    send the awaiting for confirmation mail to the user.
-    """
-    subject = "we're waiting for your confirmation!!"
-    mail_to_be_sent = Message(subject=subject, recipients=[user['email']])
-    confirmation_url = url_for('activate_user', user_id=user['_id'], _external=True)
-    mail_to_be_sent.body = "dear %s, click here to confirm: %s" % (user['email'], confirmation_url)
-    from app import mail
-    mail.send(mail_to_be_sent)
+@app.route('/add')
+def registration():
+    return render_template('add.html')
+
+@app.route('/secret')
+def registration():
+    return render_template('content.html')
 
 
 @app.route('/registration')
@@ -98,24 +76,14 @@ def register():
             error = 'You have to enter a valid email address'
         elif not request.form['password']:
             error = 'You have to enter a password'
-        #elif request.form['password'] != request.form['password2']:
-        #    error = 'The two passwords do not match'
-        #elif get_user_id(request.form['username']) is not None:
-        #    error = 'The username is already taken'
+        elif get_user_id(request.form['email']) is not None:
+            error = 'The username is already taken'
         else:
-            new_user = {'_id' : 'someid', 'email' : request.form['email'], 'password' : request.form['password'] }
-            send_awaiting_confirm_mail(new_user)
-            #flash(messages.EMAIL_VALIDATION_SENT, 'info')
-            flash('You were successfully registered and can login now')
+            new_user_id = users_collection.save({ 'email' : request.form['email'], 'password' : request.form['password'], 'status' : 'awaiting confirma' })
+            payload = {'from': 'Excited User <me@samples.mailgun.org>', 'to': request.form['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'http://obscure-springs-3022.herokuapp.com/activate_user/' + new_user_id }
+            r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
+            flash('You were successfully registered. Confirm registration and login.')
             return render_template('login.html', error=error) 
-
-            """
-            g.db.execute('''insert into user (
-username, email, pw_hash) values (?, ?, ?)''',
-                [request.form['username'], request.form['email'],
-                 generate_password_hash(request.form['password'])])
-            g.db.commit()
-            """
     flash('no luck ((')
     return render_template('registration.html', error=error)
 
@@ -128,7 +96,7 @@ def activate_user(user_id):
     """
     Activate user function.
     """
-    found_user = {}### Getting user in db from id here ###*
+    found_user = users_collection.find_one({'_id':pymongo.objectid(user_id)});
     if not found_user:
         return abort(404)
     else:

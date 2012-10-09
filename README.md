@@ -1,4 +1,4 @@
 quickhunt
 =========
 
-Quick Hunt
+Quick Hunt is a deep copy of hantim.ru
