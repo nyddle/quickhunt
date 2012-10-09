@@ -1,0 +1,27 @@
+source $(rvm 1.9.3 do rvm env --path)
+
+
+
+Mongo Console
+mongo alex.mongohq.com:10013/app8222672 -u <user> -p<password>
+
+Mongo URI
+mongodb://<user>:<password>@alex.mongohq.com:10013/app8222672
+
+
+user: quickhunt
+password: qhpassword
+
+
+gmail:
+quickhunt.team@gmail.com
+passwd:qhpassword
+
+
+API Key
+
+        96bf165b2fcc0711b7b4e5ee88d03edcf6917af4
+
+
+
+
