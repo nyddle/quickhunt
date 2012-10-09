@@ -39,6 +39,8 @@ class User(UserMixin):
         return self.active
 
 
+def get_user_id(email):
+    return users_collection.find_one({ 'email' : email })
 
 @app.route('/')
 def hello():
