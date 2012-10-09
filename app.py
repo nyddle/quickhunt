@@ -102,7 +102,8 @@ def activate_user(user_id):
     else:
         if found_user['status'] == 'awaiting_confirm':
             ### Setting the user status active here ###*
-            send_subscription_confirmed_mail(found_user)
+            payload = {'from': 'Quick Hunt <me@samples.mailgun.org>', 'to': found_user['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'Subscription confirmed.' }
+            r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
             flash('user has been activated', 'info')
         elif found_user['status'] == 'active':
             flash('user already activated', 'info')
