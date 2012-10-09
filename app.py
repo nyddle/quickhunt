@@ -86,10 +86,8 @@ def register():
             r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
             flash('You were successfully registered. Confirm registration and login.')
             return render_template('login.html', error=error) 
-    flash('no luck ((')
+    flash('no luck (('+error)
     return render_template('registration.html', error=error)
-
-
 
 
 
