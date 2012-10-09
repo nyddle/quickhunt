@@ -81,7 +81,7 @@ def register():
         elif get_user_id(request.form['email']) is not None:
             error = 'The username is already taken'
         else:
-            new_user_id = users_collection.save({ 'email' : request.form['email'], 'password' : request.form['password'], 'status' : 'awaiting confirma' })
+            new_user_id = users_collection.save({ 'email' : request.form['email'], 'password' : request.form['password'], 'status' : 'awaiting confirm' })
             payload = {'from': 'Excited User <me@samples.mailgun.org>', 'to': request.form['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'http://obscure-springs-3022.herokuapp.com/activate_user/' + str(new_user_id) }
             r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
             flash('You were successfully registered. Confirm registration and login.')
@@ -96,7 +96,7 @@ def activate_user(user_id):
     """
     Activate user function.
     """
-    found_user = users_collection.find_one({'_id':str(user_id)});
+    found_user = users_collection.find_one({'_id':ObjectId(user_id)});
     if not found_user:
         return abort(404)
     else:
