@@ -7,6 +7,7 @@ from flask.ext.login import (LoginManager, current_user, login_required,
                             login_user, logout_user, UserMixin, AnonymousUser,
                             confirm_login, fresh_login_required)
 import pymongo
+import bson
 import datetime
 from werkzeug import check_password_hash, generate_password_hash
 from mongokit import Connection, Document
@@ -96,7 +97,7 @@ def activate_user(user_id):
     """
     Activate user function.
     """
-    found_user = users_collection.find_one({'_id':ObjectId(user_id)});
+    found_user = users_collection.find_one({'_id':bson.ObjectId(oid=str(user_id))});
     if not found_user:
         return abort(404)
     else:
