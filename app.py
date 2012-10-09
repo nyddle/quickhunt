@@ -96,7 +96,7 @@ def activate_user(user_id):
     """
     Activate user function.
     """
-    found_user = users_collection.find({'_id':str(user_id)});
+    found_user = users_collection.find_one({'_id':str(user_id)});
     if not found_user:
         return abort(404)
     else:
