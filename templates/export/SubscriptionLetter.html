@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Napkee export</title>
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/smoothness/ui.spinner.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.treeview.css" type="text/css" />
+	<style>
+	body {
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		color: #333;
+	}
+	#napkeeCanvas {
+		position:absolute;
+		left:0px;
+		top:0px;
+	}
+	.napkeeComponent {
+		position:absolute;
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		white-space: nowrap;
+	}
+	.napkeeRelativeComponent {
+		position:absolute;
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		white-space: nowrap;
+	}
+	
+	
+#nap130{
+	left:0px;
+	top:0px;
+	width:800px;
+	height:747px;
+	z-index:0;
+	background-color:#FFFFFF;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+	border:1px solid #000;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+}
+	
+#nap2{
+	left:355px;
+	top:68px;
+	width:90px;
+	height:26px;
+	z-index:1;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:center;
+	color:#000000;
+}
+	
+#nap136{
+	left:296px;
+	top:115px;
+	width:209px;
+	height:37px;
+	z-index:2;
+	font-size: 28px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap145_0{
+	left:169px;
+	top:198px;
+	width:462px;
+	height:169px;
+	z-index:0;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+	white-space: normal;
+}
+	
+#nap148_0{
+	left:111px;
+	top:688px;
+	width:578px;
+	height:1px;
+	z-index:0;
+	background-color:#000000;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+	
+#nap148_1{
+	left:581px;
+	top:710px;
+	width:88px;
+	height:21px;
+	z-index:1;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#999999;
+}
+	
+#nap148_2{
+	left:140px;
+	top:708px;
+	width:150px;
+	height: 24px;
+	z-index:2;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#nap150{
+	left:323px;
+	top:150px;
+	width:169.4px;
+	height:21px;
+	z-index:5;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#666666;
+}
+	
+	</style>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	
+
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+	<script type="text/javascript" src="js/ui.spinner.js"></script>
+	<script type="text/javascript" src="js/jquery.querystring.js"></script>
+	<script type="text/javascript" src="js/jquery.substitute.js"></script>
+	<script type="text/javascript" src="js/napkee.templater.js"></script>
+	<script type="text/javascript" src="js/napkee.tabs.js"></script>
+	<script type="text/javascript" src="js/jquery.sparkline.min.js"></script>
+	<script type="text/javascript" src="js/jquery.treeview.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jmap.min.js"></script>
+	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script type="text/javascript" src="js/jquery.swfobject.1-0-5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tagcloud.min.js"></script>
+	<script type="text/javascript" src="js/jquery.iphone-switch.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<!--[if lt IE 7.]>
+		<script defer type="text/javascript" src="js/pngfix.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$(".napkeeVerticalScrollHandle").draggable({ containment: 'parent', axis: 'y', cursor: 'pointer'  });
+			$(".napkeeVerticalScrollArrowUp").click(function(){
+				var numericTop = ($(this).next().find("div").css("top").substring(0,$(this).next().find("div").css("top").length-2))*1;
+				if ($(this).next().find("div").css("top") == null || $(this).next().find("div").css("top") == "auto") {
+					numericTop = 0;
+				}
+				if (numericTop>0){
+					$(this).next().find("div").css("top",(numericTop-2)+"px");
+				}
+			});
+			
+			$(".napkeeVerticalScrollArrowDown").click(function(){
+				var numericTop = ($(this).prev().find("div").css("top").substring(0,$(this).prev().find("div").css("top").length-2))*1;
+				if ($(this).prev().find("div").css("top") == null || $(this).prev().find("div").css("top") == "auto") {
+					numericTop = 0;
+				}
+				if (numericTop+$(this).prev().find("div").height()<$(this).prev().height()-2){
+					$(this).prev().find("div").css("top",(numericTop+2)+"px");
+				}
+			});
+			$(".napkeeHorizontalScrollHandle").draggable({ containment: 'parent', axis: 'x', cursor: 'pointer'  });
+			$(".napkeeHorizontalScrollArrowLeft").click(function(){
+				var numericLeft = ($($(this).parent().next().children()[0]).find("div").css("left").substring(0,$($(this).parent().next().children()[0]).find("div").css("left").length-2))*1;
+				if ($($(this).parent().next().children()[0]).find("div").css("left") == null || $($(this).parent().next().children()[0]).find("div").css("left") == "auto") {
+					numericLeft = 0;
+				}
+				if (numericLeft>0){
+					$($(this).parent().next().children()[0]).find("div").css("left",(numericLeft-1)+"px");
+				}
+			});
+			
+			$(".napkeeHorizontalScrollArrowRight").click(function(){
+				var numericLeft = ($($(this).parent().prev().children()[0]).find("div").css("left").substring(0,$($(this).parent().prev().children()[0]).find("div").css("left").length-2))*1;
+				if ($($(this).parent().prev().children()[0]).find("div").css("left") == null || $($(this).parent().prev().children()[0]).find("div").css("left") == "auto") {
+					numericLeft = 0;
+				}
+				if (numericLeft+$($(this).parent().prev().children()[0]).find("div").width()<$($(this).parent().prev().children()[0]).find("div").parent().width()-2){
+					$($(this).parent().prev().children()[0]).find("div").css("left",(numericLeft+1)+"px");
+				}
+			});
+			
+$("#nap130").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap2").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap136").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap145_0").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap148_1").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap148_2").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap150").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+		});
+	</script>
+	
+</head>
+
+<body>
+
+		
+
+
+		
+<div id="nap130" class="napkeeComponent napkeeCanvas">
+<span id="nap2" class="napkeeRelativeComponent napkeeTitle">Квик Хант</span>
+	
+<span id="nap136" class="napkeeRelativeComponent napkeeTitle">Новые вакансии</span>
+	
+<div id="nap145_0" class="napkeeRelativeComponent napkeeParagraph" cellspacing="0" cellpadding="0"><a href="#">JavaScript&ndash;разработчик,  60 000...70 000, Москва, частичная, офис</a><br/><br/><a href="#">JavaScript&ndash;джедай,  80 000...100 000, Москва, полная, удаленно</a><br/><br/><a href="#">Опытный специалист по Node.js,  110 000...130 000, Москва, полная, офис</a><br/><br/><a href="#">Программист на JavaScript,  20 000...30 000, Москва, полная, офис</a><br/><br/><a href="#">JS,  40 000...50 000, Москва, частичная, офис</a><br/></div>
+	
+<div id="nap148_0" class="napkeeRelativeComponent napkeeHrule"></div>
+	
+<span id="nap148_1" class="napkeeRelativeComponent napkeeLabel ">© <u>Квик Хант</u></span>
+	
+<button id="nap148_2" type="button" class="napkeeRelativeComponent napkeeButton">Остановить рассылку</button>
+	
+<span id="nap150" class="napkeeRelativeComponent napkeeLabel ">дайджест за 23.07.2012</span>
+	</div>
+	
+	
+
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Napkee export</title>
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/smoothness/ui.spinner.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.treeview.css" type="text/css" />
+	<style>
+	body {
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		color: #333;
+	}
+	#napkeeCanvas {
+		position:absolute;
+		left:0px;
+		top:0px;
+	}
+	.napkeeComponent {
+		position:absolute;
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		white-space: nowrap;
+	}
+	.napkeeRelativeComponent {
+		position:absolute;
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		white-space: nowrap;
+	}
+	
+	
+#nap2{
+	left:432px;
+	top:112px;
+	width:136px;
+	height:37px;
+	z-index:1;
+	font-size: 28px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:center;
+	color:#000000;
+}
+	
+#nap6{
+	left:381px;
+	top:960px;
+	width:202px;
+	height:43px;
+	z-index:2;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+	white-space: normal;
+}
+	
+#nap34{
+	left:926px;
+	top:141px;
+	width:23px;
+	height:21px;
+	z-index:3;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:underline;
+}
+	
+#nap36{
+	left:926px;
+	top:120px;
+	width:26.400000000000002px;
+	height:21px;
+	z-index:4;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap58{
+	left:111px;
+	top:935px;
+	width:791px;
+	height:1px;
+	z-index:5;
+	background-color:#000000;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+	
+#nap82{
+	left:415px;
+	top:261px;
+	width:182px;
+	height:28px;
+	z-index:6;
+	font-size: 20px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap118_0{
+	left:354px;
+	top:339px;
+	width:316px;
+	z-index:0;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap118_1{
+	left:354px;
+	top:384px;
+	width:316px;
+	z-index:1;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap118_2{
+	left:277px;
+	top:343px;
+	width:73.7px;
+	height:22px;
+	z-index:2;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:right;
+	color:#000000;
+}
+	
+#nap118_3{
+	left:289px;
+	top:388px;
+	width:58.300000000000004px;
+	height:22px;
+	z-index:3;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:right;
+	color:#000000;
+}
+	
+#nap122{
+	left:219px;
+	top:460px;
+	width:563px;
+	height:99px;
+	z-index:8;
+	background-color:#FFD966;
+	opacity:0.25;
+	filter:alpha(opacity=25);
+	border:0px solid #FFE599;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+}
+	
+#nap119{
+	left:190px;
+	top:45px;
+	width:194px;
+	height: 39px;
+	z-index:9;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#nap123{
+	left:718px;
+	top:328px;
+	width:146px;
+	height:97px;
+	z-index:10;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	background-color:#DACE5F;
+}
+	
+#nap124{
+	left:355px;
+	top:611px;
+	width:348px;
+	height:95px;
+	z-index:11;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	background-color:#DACE5F;
+}
+	
+#containernap125{
+	left:181px;
+	top:10px;
+	width:212px;
+	height:24px;
+	z-index:12;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#nap126{
+	left:767px;
+	top:476px;
+	width:146px;
+	height:97px;
+	z-index:13;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	background-color:#DACE5F;
+}
+	
+	</style>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	
+
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+	<script type="text/javascript" src="js/ui.spinner.js"></script>
+	<script type="text/javascript" src="js/jquery.querystring.js"></script>
+	<script type="text/javascript" src="js/jquery.substitute.js"></script>
+	<script type="text/javascript" src="js/napkee.templater.js"></script>
+	<script type="text/javascript" src="js/napkee.tabs.js"></script>
+	<script type="text/javascript" src="js/jquery.sparkline.min.js"></script>
+	<script type="text/javascript" src="js/jquery.treeview.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jmap.min.js"></script>
+	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script type="text/javascript" src="js/jquery.swfobject.1-0-5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tagcloud.min.js"></script>
+	<script type="text/javascript" src="js/jquery.iphone-switch.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<!--[if lt IE 7.]>
+		<script defer type="text/javascript" src="js/pngfix.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$(".napkeeVerticalScrollHandle").draggable({ containment: 'parent', axis: 'y', cursor: 'pointer'  });
+			$(".napkeeVerticalScrollArrowUp").click(function(){
+				var numericTop = ($(this).next().find("div").css("top").substring(0,$(this).next().find("div").css("top").length-2))*1;
+				if ($(this).next().find("div").css("top") == null || $(this).next().find("div").css("top") == "auto") {
+					numericTop = 0;
+				}
+				if (numericTop>0){
+					$(this).next().find("div").css("top",(numericTop-2)+"px");
+				}
+			});
+			
+			$(".napkeeVerticalScrollArrowDown").click(function(){
+				var numericTop = ($(this).prev().find("div").css("top").substring(0,$(this).prev().find("div").css("top").length-2))*1;
+				if ($(this).prev().find("div").css("top") == null || $(this).prev().find("div").css("top") == "auto") {
+					numericTop = 0;
+				}
+				if (numericTop+$(this).prev().find("div").height()<$(this).prev().height()-2){
+					$(this).prev().find("div").css("top",(numericTop+2)+"px");
+				}
+			});
+			$(".napkeeHorizontalScrollHandle").draggable({ containment: 'parent', axis: 'x', cursor: 'pointer'  });
+			$(".napkeeHorizontalScrollArrowLeft").click(function(){
+				var numericLeft = ($($(this).parent().next().children()[0]).find("div").css("left").substring(0,$($(this).parent().next().children()[0]).find("div").css("left").length-2))*1;
+				if ($($(this).parent().next().children()[0]).find("div").css("left") == null || $($(this).parent().next().children()[0]).find("div").css("left") == "auto") {
+					numericLeft = 0;
+				}
+				if (numericLeft>0){
+					$($(this).parent().next().children()[0]).find("div").css("left",(numericLeft-1)+"px");
+				}
+			});
+			
+			$(".napkeeHorizontalScrollArrowRight").click(function(){
+				var numericLeft = ($($(this).parent().prev().children()[0]).find("div").css("left").substring(0,$($(this).parent().prev().children()[0]).find("div").css("left").length-2))*1;
+				if ($($(this).parent().prev().children()[0]).find("div").css("left") == null || $($(this).parent().prev().children()[0]).find("div").css("left") == "auto") {
+					numericLeft = 0;
+				}
+				if (numericLeft+$($(this).parent().prev().children()[0]).find("div").width()<$($(this).parent().prev().children()[0]).find("div").parent().width()-2){
+					$($(this).parent().prev().children()[0]).find("div").css("left",(numericLeft+1)+"px");
+				}
+			});
+			
+$("#nap2").click(function(event){
+	showMockup('HomePage.html');
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap6").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap34").click(function(event){
+	event.preventDefault();
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap36").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap82").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap118_0").click(function(event){
+	event.stopPropagation();
+	event.preventDefault();
+});
+	
+$("#nap118_1").click(function(event){
+	event.stopPropagation();
+	event.preventDefault();
+});
+	
+$("#nap118_2").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap118_3").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap122").click(function(event){
+	showMockup('AuthorizedPage.html');
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap119").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap123").draggable();
+	
+$("#nap124").draggable();
+	
+$("#containernap125").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap126").draggable();
+	
+		});
+	</script>
+	
+</head>
+
+<body>
+
+		
+
+
+		
+<span id="nap2" class="napkeeComponent napkeeTitle">Квик Хант</span>
+	
+<div id="nap6" class="napkeeComponent napkeeParagraph" cellspacing="0" cellpadding="0">© 2012...2013 <a href="#">Квик Хант</a><br/></div>
+	
+<a id="nap34" href="#" class="napkeeComponent napkeeLink">EN</a>
+	
+<span id="nap36" class="napkeeComponent napkeeLabel ">RU</span>
+	
+<div id="nap58" class="napkeeComponent napkeeHrule"></div>
+	
+<span id="nap82" class="napkeeComponent napkeeTitle">Вход и регистрация</span>
+	
+<input id="nap118_0" type="text" value="yarik.glukhov@gmail.com" class="napkeeComponent napkeeTextinput" />
+	
+<input id="nap118_1" type="text" value="<b></b>******" class="napkeeComponent napkeeTextinput" />
+	
+<span id="nap118_2" class="napkeeComponent napkeeLabel ">Эл. почта</span>
+	
+<span id="nap118_3" class="napkeeComponent napkeeLabel ">Пароль</span>
+	
+<div id="nap122" class="napkeeComponent napkeeCanvas">
+<button id="nap119" type="button" class="napkeeRelativeComponent napkeeButton">Войти</button>
+	
+<span id="containernap125" class="napkeeRelativeComponent napkeeCheckbox">
+	<input id="nap125" type="checkbox" checked="true" />
+	<label for="nap125"><a href="#">Я принимаю условия соглашения</a></label>
+</span>
+	</div>
+	
+<div id="nap123" class="napkeeComponent napkeeStickynote">Фокус устанавливается на эл. почте</div>
+	
+<div id="nap124" class="napkeeComponent napkeeStickynote"><b>Хочу все сабмиты форм положить на желтую плашку как у Горбунова. Так и правда круче.</b><br/><br/><a href="#">http://artgorbunov.ru/bb/soviet/20121002/</a><br/></div>
+	
+<div id="nap126" class="napkeeComponent napkeeStickynote">Если еще не принимал условия, то надо принять, иначе их не видно</div>
+	
+	
+
+
+</body>
+</html>

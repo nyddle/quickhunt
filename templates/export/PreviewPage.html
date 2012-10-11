@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Napkee export</title>
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/smoothness/ui.spinner.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.treeview.css" type="text/css" />
+	<style>
+	body {
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		color: #333;
+	}
+	#napkeeCanvas {
+		position:absolute;
+		left:0px;
+		top:0px;
+	}
+	.napkeeComponent {
+		position:absolute;
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		white-space: nowrap;
+	}
+	.napkeeRelativeComponent {
+		position:absolute;
+		font-size:13px;
+		font-family: Comic Sans, Comic Sans MS, cursive;
+		white-space: nowrap;
+	}
+	
+	
+#nap2{
+	left:405px;
+	top:112px;
+	width:136px;
+	height:37px;
+	z-index:1;
+	font-size: 28px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:center;
+	color:#000000;
+}
+	
+#nap6{
+	left:381px;
+	top:1064px;
+	width:202px;
+	height:43px;
+	z-index:2;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+	white-space: normal;
+}
+	
+#nap91{
+	left:618px;
+	top:288px;
+	width:150px;
+	height:150px;
+	z-index:3;
+	border:0px solid;
+}
+
+#nap91table{
+	left:618px;
+	top:288px;
+	width:150px;
+	height:150px;
+	z-index:4;
+	display:none;
+}
+
+#nap91label{
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap92{
+	left:37px;
+	top:246px;
+	width:16px;
+	height:16px;
+	z-index:4;
+	border:0px solid;
+}
+	
+#nap93{
+	left:618px;
+	top:242px;
+	width:200px;
+	height:80px;
+	z-index:5;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+	white-space: normal;
+}
+	
+#nap95{
+	left:78px;
+	top:200px;
+	width:200.20000000000002px;
+	height:22px;
+	z-index:6;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap34{
+	left:926px;
+	top:141px;
+	width:23px;
+	height:21px;
+	z-index:7;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:underline;
+}
+	
+#nap36{
+	left:926px;
+	top:120px;
+	width:26.400000000000002px;
+	height:21px;
+	z-index:8;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap58{
+	left:111px;
+	top:1039px;
+	width:791px;
+	height:1px;
+	z-index:9;
+	background-color:#000000;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+	
+#nap63{
+	left:37px;
+	top:203px;
+	width:16px;
+	height:16px;
+	z-index:10;
+	border:0px solid;
+}
+	
+#nap82{
+	left:78px;
+	top:242px;
+	width:290px;
+	height:28px;
+	z-index:11;
+	font-size: 20px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+#nap83{
+	left:405px;
+	top:112px;
+	width:136px;
+	height:37px;
+	z-index:12;
+	font-size: 28px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:center;
+	color:#000000;
+}
+	
+#nap97{
+	left:78px;
+	top:285px;
+	width:500px;
+	height:506px;
+	z-index:13;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+	white-space: normal;
+}
+	
+#nap100{
+	left:618px;
+	top:453px;
+	width:200px;
+	height:93px;
+	z-index:14;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+	white-space: normal;
+}
+	
+#nap101{
+	left:618px;
+	top:568px;
+	width:180px;
+	height:180px;
+	z-index:15;
+}
+	
+#nap105{
+	left:316px;
+	top:201px;
+	width:65px;
+	height:21px;
+	z-index:16;
+}
+#nap105 img{
+	width:16px;
+	height:16px;
+	border:0px solid;
+}
+#nap105 td{
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	border:0;
+}
+	
+#nap106{
+	left:403px;
+	top:201px;
+	width:54px;
+	height:21px;
+	z-index:17;
+}
+#nap106 img{
+	width:16px;
+	height:16px;
+	border:0px solid;
+}
+#nap106 td{
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	border:0;
+}
+	
+#nap117_0{
+	left:175px;
+	top:903px;
+	width:563px;
+	height:101px;
+	z-index:0;
+	background-color:#FFD966;
+	opacity:0.25;
+	filter:alpha(opacity=25);
+	border:0px solid #FFE599;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+}
+	
+#nap117_1{
+	left:355px;
+	top:950px;
+	width:194px;
+	height: 39px;
+	z-index:1;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size: 18px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#containernap117_2{
+	left:355px;
+	top:915px;
+	width:212px;
+	height:24px;
+	z-index:2;
+	font-size: 13px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+#containernap118{
+	left:315px;
+	top:825px;
+	width:293px;
+	height:31px;
+	z-index:19;
+	font-size: 20px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+	
+	</style>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	
+
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+	<script type="text/javascript" src="js/ui.spinner.js"></script>
+	<script type="text/javascript" src="js/jquery.querystring.js"></script>
+	<script type="text/javascript" src="js/jquery.substitute.js"></script>
+	<script type="text/javascript" src="js/napkee.templater.js"></script>
+	<script type="text/javascript" src="js/napkee.tabs.js"></script>
+	<script type="text/javascript" src="js/jquery.sparkline.min.js"></script>
+	<script type="text/javascript" src="js/jquery.treeview.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jmap.min.js"></script>
+	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script type="text/javascript" src="js/jquery.swfobject.1-0-5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tagcloud.min.js"></script>
+	<script type="text/javascript" src="js/jquery.iphone-switch.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<!--[if lt IE 7.]>
+		<script defer type="text/javascript" src="js/pngfix.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$(".napkeeVerticalScrollHandle").draggable({ containment: 'parent', axis: 'y', cursor: 'pointer'  });
+			$(".napkeeVerticalScrollArrowUp").click(function(){
+				var numericTop = ($(this).next().find("div").css("top").substring(0,$(this).next().find("div").css("top").length-2))*1;
+				if ($(this).next().find("div").css("top") == null || $(this).next().find("div").css("top") == "auto") {
+					numericTop = 0;
+				}
+				if (numericTop>0){
+					$(this).next().find("div").css("top",(numericTop-2)+"px");
+				}
+			});
+			
+			$(".napkeeVerticalScrollArrowDown").click(function(){
+				var numericTop = ($(this).prev().find("div").css("top").substring(0,$(this).prev().find("div").css("top").length-2))*1;
+				if ($(this).prev().find("div").css("top") == null || $(this).prev().find("div").css("top") == "auto") {
+					numericTop = 0;
+				}
+				if (numericTop+$(this).prev().find("div").height()<$(this).prev().height()-2){
+					$(this).prev().find("div").css("top",(numericTop+2)+"px");
+				}
+			});
+			$(".napkeeHorizontalScrollHandle").draggable({ containment: 'parent', axis: 'x', cursor: 'pointer'  });
+			$(".napkeeHorizontalScrollArrowLeft").click(function(){
+				var numericLeft = ($($(this).parent().next().children()[0]).find("div").css("left").substring(0,$($(this).parent().next().children()[0]).find("div").css("left").length-2))*1;
+				if ($($(this).parent().next().children()[0]).find("div").css("left") == null || $($(this).parent().next().children()[0]).find("div").css("left") == "auto") {
+					numericLeft = 0;
+				}
+				if (numericLeft>0){
+					$($(this).parent().next().children()[0]).find("div").css("left",(numericLeft-1)+"px");
+				}
+			});
+			
+			$(".napkeeHorizontalScrollArrowRight").click(function(){
+				var numericLeft = ($($(this).parent().prev().children()[0]).find("div").css("left").substring(0,$($(this).parent().prev().children()[0]).find("div").css("left").length-2))*1;
+				if ($($(this).parent().prev().children()[0]).find("div").css("left") == null || $($(this).parent().prev().children()[0]).find("div").css("left") == "auto") {
+					numericLeft = 0;
+				}
+				if (numericLeft+$($(this).parent().prev().children()[0]).find("div").width()<$($(this).parent().prev().children()[0]).find("div").parent().width()-2){
+					$($(this).parent().prev().children()[0]).find("div").css("left",(numericLeft+1)+"px");
+				}
+			});
+			
+$("#nap2").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap6").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap91").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap92").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap93").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap95").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap34").click(function(event){
+	event.preventDefault();
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap36").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap63").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap82").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap83").click(function(event){
+	showMockup('HomePage.html');
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap97").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap100").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+	
+$("#nap105").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap106").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap117_0").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#nap117_1").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#containernap117_2").click(function(event){
+	
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+$("#containernap118").click(function(event){
+	showMockup('PreviewPage.html');
+	event.stopPropagation();
+	event.preventDefault();
+
+});
+	
+		});
+	</script>
+	
+</head>
+
+<body>
+
+		
+
+
+		
+<span id="nap2" class="napkeeComponent napkeeTitle">Квик Хант</span>
+	
+<div id="nap6" class="napkeeComponent napkeeParagraph" cellspacing="0" cellpadding="0">© 2012...2013 <a href="#">Квик Хант</a><br/></div>
+	
+<img id="nap91" src="images/placeholder.jpg" class="napkeeComponent napkeeImage" />
+<table border="0" id="nap91table" class="napkeeComponent napkeeImageTable" >
+	<tr>
+		<td align="center" valign="middle">
+			<span id="nap91label" class="napkeeImageLabel"></span>
+		</td>
+	</tr>
+</table>
+
+	
+<img id="nap92" src="icons/napkee/StarIcon.png" class="napkeeComponent napkeeIcon rotate360" />
+	
+<div id="nap93" class="napkeeComponent napkeeParagraph" cellspacing="0" cellpadding="0"><a href="#">Microsoft</a><br/></div>
+	
+<span id="nap95" class="napkeeComponent napkeeLabel ">Петропавловск&ndash;Камчатский</span>
+	
+<a id="nap34" href="#" class="napkeeComponent napkeeLink">EN</a>
+	
+<span id="nap36" class="napkeeComponent napkeeLabel ">RU</span>
+	
+<div id="nap58" class="napkeeComponent napkeeHrule"></div>
+	
+<img id="nap63" src="icons/napkee/StarIcon.png" class="napkeeComponent napkeeIcon rotate360" />
+	
+<span id="nap82" class="napkeeComponent napkeeTitle">Проектировщик интерфейсов</span>
+	
+<span id="nap83" class="napkeeComponent napkeeTitle">Квик Хант</span>
+	
+<div id="nap97" class="napkeeComponent napkeeParagraph" cellspacing="0" cellpadding="0">Петропавлоск&ndash;Камчатсикй офис российского подразделения американской компании <a href="#">Microsoft</a> ищет проектировщика интерфейса для постоянной работы.<br/><br/><b>Что нужно делать</b><br/><br/><li>Анализ сценариев работы пользователя разрабатываемого приложения</li><li>Проектирование взаимодействия пользователя с приложениям</li><li>Проведение юзабилити&ndash;тестирования, анализ и интерпретация результатов</li><li>Создание графических прототипов интерфейсов мобильных и веб приложений</li><br/><b>Требуемые навыки и знания в порядке важности</b><br/><br/><li>Знание основных принципов разработки пользовательского интерфейса</li><li>Знания стандартов и технологий в области разработки пользовательских интерфейсов</li><br/><b>Приветствуются</b><br/><br/><li>Опыт использования приложений OminGraffle и подобных</li><br/><b>Условия работы</b><br/><br/><li>Хороший офис на Маланова 6, г. Петропавловск&ndash;Камчатский</li><li>Дружелюбный и отзывчивый коллектив</li><li>Гибкий рабочий график</li></div>
+	
+<div id="nap100" class="napkeeComponent napkeeParagraph" cellspacing="0" cellpadding="0">Основанная в 1975 году корпорация Microsoft является признанным мировым лидером в производстве программного обеспечения.<br/></div>
+	
+<iframe id="nap101" src="http://www.napkee.com/components/NapkeeHostedMaps/?loc=Amsterdam, The Netherlands" class="napkeeComponent napkeeMap"></iframe>
+	
+<table id="nap105" class="napkeeComponent napkeeIconLabel">
+	<tr>
+		<td>
+			&nbsp;
+		</td>
+		<td align="center">
+			<img src="icons/napkee/SmallClockIcon.png" class="rotate360"/>
+		</td>
+		<td>
+			полная
+		</td>
+	</tr>
+	<tr>
+		<td>
+			&nbsp;
+		</td>
+		<td valign="middle" align="center">
+			&nbsp;
+		</td>
+		<td>
+			&nbsp;
+		</td>
+	</tr>
+</table>
+	
+<table id="nap106" class="napkeeComponent napkeeIconLabel">
+	<tr>
+		<td>
+			&nbsp;
+		</td>
+		<td align="center">
+			<img src="icons/napkee/HomeMobileIcon.png" class="rotate360"/>
+		</td>
+		<td>
+			офис
+		</td>
+	</tr>
+	<tr>
+		<td>
+			&nbsp;
+		</td>
+		<td valign="middle" align="center">
+			&nbsp;
+		</td>
+		<td>
+			&nbsp;
+		</td>
+	</tr>
+</table>
+	
+<div id="nap117_0" class="napkeeComponent napkeeCanvas"></div>
+	
+<button id="nap117_1" type="button" class="napkeeComponent napkeeButton">Опубликовать</button>
+	
+<span id="containernap117_2" class="napkeeComponent napkeeCheckbox">
+	<input id="nap117_2" type="checkbox" checked="true" />
+	<label for="nap117_2"><a href="#">Я принимаю условия соглашения</a></label>
+</span>
+	
+<span id="containernap118" class="napkeeComponent napkeeCheckbox">
+	<input id="nap118" type="checkbox" checked="true" />
+	<label for="nap118"><a href="#">Я хочу заказать продвижение</a></label>
+</span>
+	
+	
+
+
+</body>
+</html>
