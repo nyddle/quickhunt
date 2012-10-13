@@ -66,6 +66,11 @@ def registration():
 def registration():
     return render_template('login.html')
 
+@app.route('/<anypage>')
+def anypage(anypage):
+    return render_template(anypage+'.html')
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Registers the user."""
