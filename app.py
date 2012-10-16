@@ -108,7 +108,7 @@ def activate_user(user_id):
             flash('user has been activated', 'info')
         elif found_user['status'] == 'active':
             flash('user already activated', 'info')
-        return redirect(url_for('content'))
+        return  render_template('content.html')
 
 
 if __name__ == '__main__':
