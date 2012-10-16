@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Добавить вакансию{% endblock %}
+{% block content %}
+  <h1>Добавить вакансию</h1>
+  <form name="add_vacancy" action="">
+
+    <!-- Vacancy -->
+    <p>
+      <label>Вакансия: <input type="text" name="vacancy_title"></label>
+    </p>
+    <p>
+      <label>Категория: <input type="password" name="vacancy_category"></label>
+    </p>
+    <p>
+      <label>Занятость:
+        <span><input type="radio" name="vacancy_employment" value="full_time" checked="checked"> полная</span>
+        <span><input type="radio" name="vacancy_employment" value="part_time"> частичная</span>
+      </label>
+    </p>
+    <p>
+      <label>Рабочее место:
+        <span><input type="radio" name="vacancy_workplace" value="office" checked="checked"> офис</span>
+        <span><input type="radio" name="vacancy_workplace" value="remote"> удаленно</span>
+      </label>
+    </p>
+    <p>
+      <label>Краткое описание:
+        <textarea name="vacancy_description"></textarea>
+      </label>
+    </p>
+    <p>
+      <label>Что нужно делать:
+        <textarea name="vacancy_charge"></textarea>
+      </label>
+    </p>
+    <p>
+      <label>Требуемые навыки:
+        <textarea name="vacancy_experience"></textarea>
+      </label>
+    </p>
+    <p>
+      <label>Приветствуется:
+        <textarea name="vacancy_additional"></textarea>
+      </label>
+    </p>
+    <p>
+      <label>Условия:
+        <textarea name="vacancy_terms"></textarea>
+      </label>
+    </p>
+
+    <hr>
+
+    <!-- Company -->
+    <p>
+      <label>Компания: <input type="text" name="company_name"></label>
+    </p>
+    <p>
+      <label>Описание:
+        <textarea name="company_description"></textarea>
+      </label>
+      <span>ограничение 140 символов</span>
+    </p>
+    <p>
+      <label>Лого: <input type="file" name="company_logo"></label>
+    </p>
+
+    <hr>
+
+    <!--  Other fields -->
+    <p>
+      <label>Город: <input type="text" name="city"></label>
+    </p>
+    <p>
+      <label>Адрес: <input type="text" name="address"></label>
+    </p>
+    <p>
+      <label>Имя автора: <input type="text" name="author"></label>
+    </p>
+    <p>
+      <label>Эл. почта: <input type="text" name="email"></label>
+    </p>
+    <p>
+      <label>Промо-код: <input type="text" name="promo_code"></label>
+    </p>
+
+    <hr>
+
+    <!--  Submit -->
+    <p>
+      <input type="submit" value="Предпросмотр">
+    </p>
+
+  </form>
+{% endblock %}
