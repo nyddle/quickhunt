@@ -1,19 +1,14 @@
-<!DOCTYPE HTML>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
 <head>
   {% block head %}
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-  {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class=flashes>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-  {% endwith %}
+  <script data-main="js/config" type="text/javascript" src="/static/js/vendor/require.js"></script>
   {% endblock %}
 </head>
 <body>
@@ -23,5 +18,14 @@
       &copy; 2012...2013 &laquo;<a href="mailto:mail@quickhunt.ru">Квик Хант</a>&raquo;
     {% endblock %}
   </div>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 </body>
 </html>
