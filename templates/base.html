@@ -4,6 +4,7 @@
   {% block head %}
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
   {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul class=flashes>
