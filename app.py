@@ -27,7 +27,7 @@ mail = Mail(app)
 if app.debug:
     from flaskext.lesscss import lesscss
     lesscss(app)
-app.static_path = 'static'
+app.static_path = '/static'
 
 
 # connect to the database
@@ -50,7 +50,7 @@ def get_user_id(email):
 
 @app.route('/')
 def hello():
-    return render_template('registration.html')
+    return render_template('home.html')
 
 
 
@@ -75,7 +75,6 @@ def registration():
 def anypage(anypage):
     return render_template(anypage+'.html')
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Registers the user."""
@@ -96,7 +95,7 @@ def register():
             payload = {'from': 'Excited User <me@samples.mailgun.org>', 'to': request.form['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'http://obscure-springs-3022.herokuapp.com/activate_user/' + str(new_user_id) }
             r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
             flash('You were successfully registered. Confirm registration and login.')
-            return render_template('login.html', error=error) 
+            return render_template('login.html', error=error)
     flash('no luck ((')
     return render_template('registration.html', error=error)
 
