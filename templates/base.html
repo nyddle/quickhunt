@@ -12,12 +12,26 @@
   {% endblock %}
 </head>
 <body>
-  <div id="content">{% block content %}{% endblock %}</div>
-  <div id="footer">
-    {% block footer %}
-      &copy; 2012...2013 &laquo;<a href="mailto:mail@quickhunt.ru">Квик Хант</a>&raquo;
-    {% endblock %}
+  <div class="wrapper">
+
+    <div class="header">
+      <div class="add_vacancy"><input type="button" value="Добавить вакансию"> <span>500 рублей</span></div>
+      <h1 class="logo">Квик Хант <a href="/login/">войти</a></h1>
+      <div class="languages">
+        <a class="selected" href="/ru/">RU</a>
+        <a href="/en/">EN</a>
+      </div>
+    </div>
+
+    <div class="content">{% block content %}{% endblock %}</div>
+    <!--<div class="footer">
+      {% block footer %}
+        &copy; 2012...2013 &laquo;<a href="mailto:mail@quickhunt.ru">Квик Хант</a>&raquo;
+      {% endblock %}-->
+    </div>
+
   </div>
+
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul class="flashes">
@@ -27,5 +41,6 @@
       </ul>
     {% endif %}
   {% endwith %}
+
 </body>
 </html>
