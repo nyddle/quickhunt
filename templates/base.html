@@ -8,6 +8,18 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="/static/css/libs/normalize.css">
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='apple-touch-icon-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='apple-touch-icon-72x72-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='apple-touch-icon-114x114-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='apple-touch-icon-144x144-precomposed.png') }}">
+
+
+  <!-- Знак рубля -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+rel="stylesheet" type="text/css" />
+
   <script data-main="/static/js/config" type="text/javascript" src="/static/js/libs/require.js"></script>
   {% endblock %}
 </head>
@@ -15,8 +27,13 @@
   <div class="wrapper">
 
     <div class="header">
-      <div class="add_vacancy"><input type="button" value="Добавить вакансию"> <span>500 рублей</span></div>
-      <h1 class="logo">Квик Хант <a href="/login/">войти</a></h1>
+      <div class="add_vacancy">
+        <input type="button" value="Добавить вакансию">
+        <span class="price">500 &#8399;</span>
+      </div>
+      <div class="logo">
+        <h1><a href="/">Квик Хант</a></h1>
+      </div>
       <div class="languages">
         <a class="selected" href="/ru/">RU</a>
         <a href="/en/">EN</a>
@@ -24,10 +41,10 @@
     </div>
 
     <div class="content">{% block content %}{% endblock %}</div>
-    <!--<div class="footer">
+    <div class="footer">
       {% block footer %}
         &copy; 2012...2013 &laquo;<a href="mailto:mail@quickhunt.ru">Квик Хант</a>&raquo;
-      {% endblock %}-->
+      {% endblock %}
     </div>
 
   </div>
