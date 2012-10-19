@@ -1,6 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Вход{% endblock %}
+{% block title %}Квик Хант{% endblock %}
 {% block content %}
-  <!--<h1>Вход</h1>
-  <h2>Content is king!!!</h2>-->
+  <div class="search">
+    <!-- <svg>
+      <polygon points="24,10 250,190 160,24" style="fill: #000;stroke-width:1;" />
+    </svg> -->
+
+    <a class="favorites" href="/favorites"><span class="badge">4</span></a>
+    <input type="search" placeholder="Search" />
+  </div>
+  <div class="jobs">
+
+    <div class="job">
+      <a id="favorite" class="favorite" href=""></a>
+      <a href="" class="job">
+        <div class="icon">
+          <img src="" alt="" width="50" height="50">
+        </div>
+        <div class="title">Проектироващик интерфейсов</div>
+        <div class="salary"><span class="price">70&nbsp;000</span></div>
+        <div class="location">Петропавловск-Камчатский</div>
+      </a>
+    </div>
+
+  </div>
 {% endblock %}

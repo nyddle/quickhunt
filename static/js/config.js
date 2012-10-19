@@ -10,7 +10,8 @@ require.config({
     underscore: 'libs/underscore',
     backbone: 'libs/backbone',
     handlebars: 'libs/handlebars',
-    modernizr: 'libs/modernizr'
+    modernizr: 'libs/modernizr',
+    raphael: 'libs/raphael',
   },
 
   shim: {
