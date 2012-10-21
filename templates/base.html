@@ -4,6 +4,7 @@
   {% block head %}
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul class=flashes>
@@ -24,3 +25,5 @@
   </div>
 </body>
 </html>
+
+
