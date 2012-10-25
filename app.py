@@ -4,10 +4,11 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
              render_template, flash
 from flask.ext.mail import Mail, Message
 import pymongo
-from mongokit import Connection, Document
+from pymongo import Connection
 
 
 SECRET_KEY = 'development key'
+
 
 
 app = Flask(__name__)
@@ -24,41 +25,6 @@ app.static_path = '/static'
 connection = Connection('mongodb://quickhunt:qhpassword@alex.mongohq.com:10013/app8222672')
 users_collection =  connection.app8222672.users
 print users_collection
-
-
-
-
-def max_length(length):
-    def validate(value):
-        if len(value) <= length:
-            return True
-        raise Exception('%s must be at most %s characters long' % length)
-    return validate
-
-"""
-   structure = {
-                'title':unicode,
-                'body':unicode,
-                'author':unicode,
-                'date_creation':datetime.datetime,
-                'rank':int
-                }
-"""
-class User(Document):
-    structure = {
-        'name': unicode,
-        'email': unicode,
-    }
-    validators = {
-        'name': max_length(50),
-        'email': max_length(120)
-    }
-    use_dot_notation = True
-    def __repr__(self):
-        return '<User %r>' % (self.name)
-
-connection.register([User])
-
 
 
 @app.route('/')

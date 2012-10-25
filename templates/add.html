@@ -2,51 +2,51 @@
 {% block title %}Добавить вакансию{% endblock %}
 {% block content %}
   <h1>Добавить вакансию</h1>
-  <form name="add_job" action="">
+  <form name="add_vacancy" action="">
 
     <!-- Vacancy -->
 
     <p>
-      <label>Вакансия: <input type="text" name="job_title"></label>
+      <label>Вакансия: <input type="text" name="vacancy_title"></label>
     </p>
     <p>
-      <label>Категория: <input type="password" name="job_category"></label>
+      <label>Категория: <input type="password" name="vacancy_category"></label>
     </p>
     <p>
       <label>Занятость:
-        <span><input type="radio" name="job_employment" value="full_time" checked="checked"> полная</span>
-        <span><input type="radio" name="job_employment" value="part_time"> частичная</span>
+        <span><input type="radio" name="vacancy_employment" value="full_time" checked="checked"> полная</span>
+        <span><input type="radio" name="vacancy_employment" value="part_time"> частичная</span>
       </label>
     </p>
     <p>
       <label>Рабочее место:
-        <span><input type="radio" name="job_workplace" value="office" checked="checked"> офис</span>
-        <span><input type="radio" name="job_workplace" value="remote"> удаленно</span>
+        <span><input type="radio" name="vacancy_workplace" value="office" checked="checked"> офис</span>
+        <span><input type="radio" name="vacancy_workplace" value="remote"> удаленно</span>
       </label>
     </p>
     <p>
       <label>Краткое описание:
-        <textarea name="job_description"></textarea>
+        <textarea name="vacancy_description"></textarea>
       </label>
     </p>
     <p>
       <label>Что нужно делать:
-        <textarea name="job_charge"></textarea>
+        <textarea name="vacancy_charge"></textarea>
       </label>
     </p>
     <p>
       <label>Требуемые навыки:
-        <textarea name="job_experience"></textarea>
+        <textarea name="vacancy_experience"></textarea>
       </label>
     </p>
     <p>
       <label>Приветствуется:
-        <textarea name="job_additional"></textarea>
+        <textarea name="vacancy_additional"></textarea>
       </label>
     </p>
     <p>
       <label>Условия:
-        <textarea name="job_terms"></textarea>
+        <textarea name="vacancy_terms"></textarea>
       </label>
     </p>
 
