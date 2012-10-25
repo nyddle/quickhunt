@@ -3,17 +3,8 @@ from flask import Flask, render_template
 from flask import Flask, request, session, g, redirect, url_for, abort, \
              render_template, flash
 from flask.ext.mail import Mail, Message
-from flask.ext.login import (LoginManager, current_user, login_required,
-                            login_user, logout_user, UserMixin, AnonymousUser,
-                            confirm_login, fresh_login_required)
 import pymongo
-import bson
-import datetime
-from werkzeug import check_password_hash, generate_password_hash
-from mongokit import Connection, Document
-from requests.auth import HTTPBasicAuth
-import requests
-
+from pymongo import Connection
 
 
 SECRET_KEY = 'development key'
@@ -35,18 +26,6 @@ connection = Connection('mongodb://quickhunt:qhpassword@alex.mongohq.com:10013/a
 users_collection =  connection.app8222672.users
 print users_collection
 
-class User(UserMixin):
-    def __init__(self, name, id, active=True):
-        self.name = name
-        self.id = id
-        self.active = active
-
-    def is_active(self):
-        return self.active
-
-
-def get_user_id(email):
-    return users_collection.find_one({ 'email' : email })
 
 @app.route('/')
 def hello():
@@ -58,18 +37,6 @@ def hello():
 def add():
     return render_template('add.html')
 
-@app.route('/secret')
-def registration():
-    return render_template('content.html')
-
-
-@app.route('/registration')
-def registration():
-    return render_template('registration.html')
-
-@app.route('/login')
-def registration():
-    return render_template('login.html')
 
 @app.route('/<anypage>')
 def anypage(anypage):
@@ -118,11 +85,4 @@ def activate_user(user_id):
         elif found_user['status'] == 'active':
             flash('user already activated', 'info')
         return redirect(url_for('content'))
-
-
-if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
 
