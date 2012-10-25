@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf8
+
 import os
 from flask import Flask, render_template
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -86,3 +89,6 @@ def activate_user(user_id):
             flash('user already activated', 'info')
         return redirect(url_for('content'))
 
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
