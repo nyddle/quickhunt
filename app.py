@@ -55,7 +55,7 @@ def hello():
 
 
 @app.route('/add')
-def registration():
+def add():
     return render_template('add.html')
 
 @app.route('/secret')

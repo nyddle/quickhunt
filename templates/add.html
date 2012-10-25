@@ -5,6 +5,7 @@
   <form name="add_vacancy" action="">
 
     <!-- Vacancy -->
+
     <p>
       <label>Вакансия: <input type="text" name="vacancy_title"></label>
     </p>
@@ -49,42 +50,40 @@
       </label>
     </p>
 
-    <hr>
+    <div class="rightColumn">
 
     <!-- Company -->
-    <p>
-      <label>Компания: <input type="text" name="company_name"></label>
-    </p>
-    <p>
-      <label>Описание:
-        <textarea name="company_description"></textarea>
-      </label>
-      <span>ограничение 140 символов</span>
-    </p>
-    <p>
-      <label>Лого: <input type="file" name="company_logo"></label>
-    </p>
+      <p>
+        <label>Компания: <input type="text" name="company_name"></label>
+      </p>
+      <p>
+        <label>Описание:
+          <textarea name="company_description"></textarea>
+        </label>
+        <span>ограничение 140 символов</span>
+      </p>
+      <p>
+        <label>Лого: <input type="file" name="company_logo"></label>
+      </p>
 
-    <hr>
+      <!--  Other fields -->
+      <p>
+        <label>Город: <input type="text" name="city"></label>
+      </p>
+      <p>
+        <label>Адрес: <input type="text" name="address"></label>
+      </p>
+      <p>
+        <label>Имя автора: <input type="text" name="author"></label>
+      </p>
+      <p>
+        <label>Эл. почта: <input type="text" name="email"></label>
+      </p>
+      <p>
+        <label>Промо-код: <input type="text" name="promo_code"></label>
+      </p>
 
-    <!--  Other fields -->
-    <p>
-      <label>Город: <input type="text" name="city"></label>
-    </p>
-    <p>
-      <label>Адрес: <input type="text" name="address"></label>
-    </p>
-    <p>
-      <label>Имя автора: <input type="text" name="author"></label>
-    </p>
-    <p>
-      <label>Эл. почта: <input type="text" name="email"></label>
-    </p>
-    <p>
-      <label>Промо-код: <input type="text" name="promo_code"></label>
-    </p>
-
-    <hr>
+    </div>
 
     <!--  Submit -->
     <p>
