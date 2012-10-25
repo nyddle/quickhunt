@@ -1,3 +1,9 @@
-$(document).ready(function(){
-	alert('Hello world!');
+require([
+  'jquery',
+  'underscore',
+  'backbone'
+], function($, _, Backbone) {
+
+
+
 });
