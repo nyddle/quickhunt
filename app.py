@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import json
+import bson
 from flask import Flask, render_template
 from flask import Flask, request, session, g, redirect, url_for, abort, \
              render_template, flash, jsonify, Response
@@ -24,12 +25,21 @@ app.static_path = 'static'
 # connect to the database
 connection = Connection('mongodb://quickhunt:qhpassword@alex.mongohq.com:10013/app8222672')
 jobs_collection =  connection.app8222672.jobs
-print jobs_collection
 
 
 @app.route('/')
 def hello():
     return render_template('add.html')
+
+
+@app.route('/list')
+def list():
+    #found_user = users_collection.find_one({'_id':bson.ObjectId(oid=str(user_id))});
+    jobs = []
+    for job in jobs_collection.find():
+        job['id'] = str(job['_id'])
+        jobs.append(job)
+    return render_template('list.html', jobs=jobs)
 
 
 @app.route('/edit')
@@ -74,7 +84,7 @@ def delete_job():
 
 
 
-
+#datetime.datetime.utcnow()
 """
 @app.route('/<anypage>')
 def anypage(anypage):
