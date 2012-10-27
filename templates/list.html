@@ -4,9 +4,9 @@
 <h4>Jobs:<h4>
  <ul>
   {% for job in jobs %}
-  <li><a href="{{ job.title }}">{{ job.title or 'Job Title' }}</a>
+  <li><a href="{{ '/view/' + job['id'] }}">{{ job['title'] or 'Job Title' }}</a>
       <a href="{{ '/edit/' + job['id'] }}">Edit</a>
-      <a href="{{ '/delete/' + job['id'] }}">Delete</a>
+      <a href="{{ '/delete/' + job['id'] }}" onclick="return confirmDelete();">Delete</a>
   </li>
   {% endfor %}
   </ul>
