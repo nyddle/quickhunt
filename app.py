@@ -41,10 +41,23 @@ def list():
         jobs.append(job)
     return render_template('list.html', jobs=jobs)
 
+@app.route('/delete/<objectid>')
+def delete(objectid):
+    response = jobs_collection.remove({'_id':bson.ObjectId(objectid)});
+    if (response == None):
+        flash('Job erased')
+    else:
+        flash('Error occured')
+    return redirect(url_for('list'))
 
-@app.route('/edit')
-def registration():
-    return render_template('add.html')
+
+
+@app.route('/edit/<objectid>')
+def edit(objectid):
+    return render_template('add.html', job=objectid)
+
+
+""" This is the API part of the equasion """
 
 
 @app.errorhandler(404)
