@@ -41,20 +41,24 @@ $(document).ready(function(){
 		});
 	});
 
+
     $.ajax({
       contentType: "application/json",
       type: "GET",
-      url: '/jobs/' + ('#oidinput').attr('value'),
+      url: '/jobs/' + $('#oidinput').attr('value')
     }).done(function( msg ) {
+      $('#addjobform').loadJSON(msg);
       alert( "Server returned: " + msg );
     });
 
     /*
     function load_job() {
         $('#addjobform').loadJSON(data);
-
     }    
 */
 //#alert($('#oidinput').attr('value'));  
 
 });
+
+
+
