@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Добавить вакансию{% endblock %}
 {% block content %}
-  <script type="text/javascript" src="static/js/init.js"></script>
+  <script type="text/javascript" src="/static/js/init.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.loadJSON.js"></script>
   <h1>Добавить вакансию</h1>
   <form type="POST" name="add_job" action="" id="addjobform">
-    <input type="hidden" name="objectid" value="{% print job %}"/>    
+    <input type="hidden" name="objectid" id="oidinput" value="{% print job %}"/>    
     <!-- Vacancy -->
     <p>
       <label>Вакансия: <input type="text" name="title"></label>
@@ -94,4 +95,5 @@
 
   </form>
       <input type="button" value="Add" id="addjobbutton">
-{% endblock %}
+      {% endblock %}
+

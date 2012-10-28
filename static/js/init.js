@@ -34,12 +34,27 @@ $(document).ready(function(){
 		$.ajax({
 		  contentType: "application/json",
 		  type: "POST",
-		  url: "/jobs",
+		  url: "/jobs/new",
 		  data: JSON.stringify($('#addjobform').serializeJSON())
 		}).done(function( msg ) {
 		  alert( "Server returned: " + msg );
 		});
 	});
 
+    $.ajax({
+      contentType: "application/json",
+      type: "GET",
+      url: '/jobs/' + ('#oidinput').attr('value'),
+    }).done(function( msg ) {
+      alert( "Server returned: " + msg );
+    });
+
+    /*
+    function load_job() {
+        $('#addjobform').loadJSON(data);
+
+    }    
+*/
+//#alert($('#oidinput').attr('value'));  
 
 });

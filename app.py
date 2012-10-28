@@ -34,16 +34,15 @@ def hello():
 
 @app.route('/list')
 def list():
-    #found_user = users_collection.find_one({'_id':bson.ObjectId(oid=str(user_id))});
     jobs = []
     for job in jobs_collection.find():
         job['id'] = str(job['_id'])
         jobs.append(job)
     return render_template('list.html', jobs=jobs)
 
-@app.route('/delete/<objectid>')
-def delete(objectid):
-    response = jobs_collection.remove({'_id':bson.ObjectId(objectid)});
+@app.route('/delete/<jobid>')
+def delete(jobid):
+    response = jobs_collection.remove({'_id':bson.ObjectId(jobid)});
     if (response == None):
         flash('Job erased')
     else:
@@ -52,13 +51,13 @@ def delete(objectid):
 
 
 
-@app.route('/edit/<objectid>')
-def edit(objectid):
-    return render_template('add.html', job=objectid)
+@app.route('/edit/<jobid>')
+def edit(jobid):
+    return render_template('add.html', job=jobid)
 
 
-""" This is the API part of the equasion """
 
+""" This is the API part of the equation """
 
 @app.errorhandler(404)
 def not_found(error=None):
@@ -71,62 +70,42 @@ def not_found(error=None):
 
     return resp
 
-@app.route('/jobs', methods = ['GET'])
-def get_job():
-    users = {'1':'john', '2':'steve', '3':'bill'}
-    
-    if userid in users:
-        return jsonify({userid:users[userid]})
+@app.route('/jobs/<jobid>', methods = ['GET'])
+def get_job(jobid):
+    found_job = jobs_collection.find_one({'_id':bson.ObjectId(oid=str(jobid))});
+    found_job['id'] = str(found_job['_id'])
+    found_job['_id'] = str(found_job['_id'])
+    #if userid in users:
+    return jsonify(found_job)
+    #else:
+    #    return not_found()
+    #return undef
+
+@app.route('/jobs/<jobid>', methods = ['POST'])
+def create_job(jobid):
+    js = json.dumps(request.data)
+    print 'js:' + str(js)
+    json_data = json.loads(request.data)
+    jobs_collection.insert(json_data)
+    print str(json_data)
+    resp = Response(js, status=200, mimetype='application/json')
+    return resp
+
+@app.route('/jobs/<jobid>', methods = ['DELETE'])
+def delete_job(jobid):
+    response = jobs_collection.remove({'_id':bson.ObjectId(jobid)});
+    if (response == None):
+        return jsonify({success:'Success'})
     else:
-        return not_found()
-	return undef
-
-@app.route('/jobs', methods = ['POST'])
-def create_job():
-	#print "POST:" + request.data
-	js = json.dumps(request.data)
-	json_data = json.loads(request.data)
-	print json_data
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
-
-@app.route('/jobs', methods = ['DELETE'])
-def delete_job():
-	return undef
-
+        return jsonify({error:'Error'})
 
 
 
 #datetime.datetime.utcnow()
-"""
-@app.route('/<anypage>')
-def anypage(anypage):
-    return render_template(anypage+'.html')
-"""
-
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
 
-"""
-  <form name="add_job" action="">
-      <label>Вакансия: <input type="text" name="job_title"></label>
-      <label>Категория: <input type="password" name="job_category"></label>
-        <span><input type="radio" name="job_employment" value="full_time" checked="checked"> полная</span>
-        <span><input type="radio" name="job_employment" value="part_time"> частичная</span>
-        <span><input type="radio" name="job_workplace" value="office" checked="checked"> офис</span>
-        <span><input type="radio" name="job_workplace" value="remote"> удаленно</span>
-        <textarea name="job_description"></textarea>
-        <textarea name="job_charge"></textarea>
-        <textarea name="job_experience"></textarea>
-        <textarea name="job_additional"></textarea>
-        <textarea name="job_terms"></textarea>
-
-      <label>Компания: <input type="text" name="company_name"></label>
-        <textarea name="company_description"></textarea>
-      <label>Лого: <input type="file" name="company_logo"></label>
-
-"""
 
