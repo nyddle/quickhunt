@@ -29,35 +29,31 @@ $(document).ready(function(){
     return json;
   }
 
-	$('#addjobbutton').click(function() {
-		//alert(JSON.stringify($('#addjobform').serializeJSON()));
-		$.ajax({
-		  contentType: "application/json",
-		  type: "POST",
-		  url: "/jobs/new",
-		  data: JSON.stringify($('#addjobform').serializeJSON())
-		}).done(function( msg ) {
-		  alert( "Server returned: " + msg );
-		});
-	});
+   function addbutton() {
+       $('#addjobbutton').click(function() {
+            $.ajax({
+              contentType: "application/json",
+              type: "POST",
+              url: "/jobs/" + $('#oidinput').attr('value'),
+              data: JSON.stringify($('#addjobform').serializeJSON())
+            }).done(function( msg ) {
+              alert( "Server returned: " + msg );
+            });
+        });
+    }
 
-
-    $.ajax({
-      contentType: "application/json",
-      type: "GET",
-      url: '/jobs/' + $('#oidinput').attr('value')
-    }).done(function( msg ) {
-      $('#addjobform').loadJSON(msg);
-      alert( "Server returned: " + msg );
-    });
-
-    /*
-    function load_job() {
-        $('#addjobform').loadJSON(data);
-    }    
-*/
-//#alert($('#oidinput').attr('value'));  
-
+    if ($('#oidinput').attr('value') == 'new') {
+        addbutton();
+    } else {
+        $.ajax({
+          contentType: "application/json",
+          type: "GET",
+          url: '/jobs/' + $('#oidinput').attr('value')
+        }).done(function( msg ) {
+          $('#addjobform').loadJSON(msg);
+          addbutton();
+        });
+    }
 });
 
 

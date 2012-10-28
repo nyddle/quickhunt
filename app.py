@@ -74,6 +74,7 @@ def not_found(error=None):
 def get_job(jobid):
     found_job = jobs_collection.find_one({'_id':bson.ObjectId(oid=str(jobid))});
     found_job['id'] = str(found_job['_id'])
+    found_job['objectid'] = str(found_job['_id'])
     found_job['_id'] = str(found_job['_id'])
     #if userid in users:
     return jsonify(found_job)
@@ -86,7 +87,9 @@ def create_job(jobid):
     js = json.dumps(request.data)
     print 'js:' + str(js)
     json_data = json.loads(request.data)
-    jobs_collection.insert(json_data)
+    if (json_data['objectid'] != 'new'):
+        json_data['_id'] = bson.ObjectId(json_data['objectid'])
+    jobs_collection.save(json_data)
     print str(json_data)
     resp = Response(js, status=200, mimetype='application/json')
     return resp
