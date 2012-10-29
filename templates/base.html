@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
 <head>
   {% block head %}
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
@@ -23,15 +23,80 @@ function confirmDelete() {
         </ul>
       {% endif %}
   {% endwith %}
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="/static/css/libs/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='apple-touch-icon-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='apple-touch-icon-72x72-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='apple-touch-icon-114x114-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='apple-touch-icon-144x144-precomposed.png') }}">
+
+  <script type="text/javascript">
+
+  // Creates canvas 320 × 200 at 10, 50
+var paper = Raphael(10, 50, 320, 200);
+
+// Creates circle at x = 50, y = 40, with radius 10
+var circle = paper.circle(50, 40, 10);
+// Sets the fill attribute of the circle to red (#f00)
+circle.attr("fill", "#f00");
+
+// Sets the stroke attribute of the circle to white
+circle.attr("stroke", "#fff");
+
+  </script>
+
+
+
+  <!-- Знак рубля -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+rel="stylesheet" type="text/css" />
+
+  <!-- Шрифт -->
+  <link href='http://fonts.googleapis.com/css?family=Istok+Web:400,400italic,700,700italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+  <script data-main="/static/js/config" type="text/javascript" src="/static/js/libs/require.js"></script>
   {% endblock %}
 </head>
 <body>
-  <div id="content">{% block content %}{% endblock %}</div>
-  <div id="footer">
-    {% block footer %}
-      &copy; 2012...2013 &laquo;<a href="mailto:mail@quickhunt.ru">Квик Хант</a>&raquo;
-    {% endblock %}
+  <div class="wrapper">
+
+    <div class="shadow">
+      <div class="header">
+        <div class="add_vacancy">
+          <a href="add" class="button">Добавить вакансию</a>
+          <span class="price">500 &#8399;</span>
+        </div>
+        <div class="logo">
+          <h1><a href="/"><span>Квик Хант</span></a></h1>
+          <a href="">вход</a>
+        </div>
+      </div>
+
+      <div class="content">{% block content %}{% endblock %}</div>
+    </div>
+
+    <div class="footer">
+      {% block footer %}
+        &copy; 2012...2013 &laquo;<a href="mailto:mail@quickhunt.ru">Квик Хант</a>&raquo;
+      {% endblock %}
+    </div>
+
   </div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
 </body>
 </html>
 

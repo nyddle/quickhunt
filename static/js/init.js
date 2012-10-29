@@ -58,3 +58,12 @@ $(document).ready(function(){
 
 
 
+require([
+  'jquery',
+  'underscore',
+  'backbone'
+], function($, _, Backbone) {
+
+
+
+});

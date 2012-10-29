@@ -3,6 +3,7 @@ venv
 *.sh
 *.swp
 *.py[cod]
+static/css/*.css
 
 # C extensions
 *.so

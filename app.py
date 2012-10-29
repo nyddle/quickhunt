@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf8
+
 import os
 import json
 import bson
@@ -19,7 +21,7 @@ app.config.from_object(__name__)
 if app.debug:
     from flaskext.lesscss import lesscss
     lesscss(app)
-app.static_path = 'static'
+app.static_path = '/static'
 
 
 # connect to the database
@@ -29,7 +31,7 @@ jobs_collection =  connection.app8222672.jobs
 
 @app.route('/')
 def hello():
-    return render_template('add.html')
+    return render_template('home.html')
 
 
 @app.route('/list')
@@ -104,11 +106,6 @@ def delete_job(jobid):
 
 
 
-#datetime.datetime.utcnow()
-
 if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
-
