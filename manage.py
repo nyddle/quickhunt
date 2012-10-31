@@ -12,7 +12,7 @@ manager.add_option('-e', '--env', dest='env', required=False, default='debug')
 # Turn on debugger by default and reloader
 manager.add_command("runserver", Server(
     use_reloader = True,
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5000)),
     host = '0.0.0.0')
 )
 
