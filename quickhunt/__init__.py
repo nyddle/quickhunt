@@ -16,7 +16,7 @@ SECRET_KEY = 'development key'
 
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 app.config.from_object(__name__)
 if app.debug:
     from flaskext.lesscss import lesscss
@@ -108,3 +108,4 @@ def delete_job(jobid):
 
 if __name__ == '__main__':
     manager.run()
+
