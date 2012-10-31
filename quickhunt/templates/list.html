@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Jobs admin{% endblock %}
+{% block content %}
+<h4>Jobs:<h4>
+<a href="{{ '/edit/new' }}">Add one</a><br>
+ <ul>
+  {% for job in jobs %}
+  <li><a href="{{ '/view/' + job['id'] }}">{{ job['title'] or 'Job Title' }}</a>
+      <a href="{{ '/edit/' + job['id'] }}">Edit</a>
+      <a href="{{ '/delete/' + job['id'] }}" onclick="return confirmDelete();">Delete</a>
+  </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+
