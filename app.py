@@ -16,7 +16,7 @@ SECRET_KEY = 'development key'
 
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 app.config.from_object(__name__)
 if app.debug:
     from flaskext.lesscss import lesscss
