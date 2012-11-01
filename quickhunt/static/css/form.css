@@ -1,0 +1,11 @@
+/* WHILE BEING CLICKED */
+input[type="button"]:active {
+  -moz-box-shadow: 0 2px 6px black;
+  -webkit-box-shadow: 0 2px 6px black;
+}
+form input,
+form textarea,
+select {
+  border: 1px solid red;
+  margin-left: 30%;
+}
