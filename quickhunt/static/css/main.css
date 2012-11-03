@@ -1,0 +1,189 @@
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+}
+.wrapper .header {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.wrapper .shadow {
+  margin-top: 144px;
+}
+.wrapper .shadow .content {
+  overflow: hidden;
+}
+input[type="search"] {
+  width: 30%;
+  border-radius: 12px;
+  border: none;
+  padding: 4px 10px 4px 28px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  font-size: 0.9em;
+  outline: none;
+  background: #ffffff url(https://d3dma7a8zw52bz.cloudfront.net/assets/icons/icon_search-c63838f7f93923e5c3b2f23cbb058323.png) no-repeat 10px center;
+}
+input[type="search"]:focus {
+  box-shadow: 0 0 4px 1px #f8d783;
+}
+input[type="button"]:active {
+  -moz-box-shadow: 0 2px 6px black;
+  -webkit-box-shadow: 0 2px 6px black;
+}
+.header h1.logo {
+  text-align: center;
+}
+.header h1.logo a {
+  background: url("/static/img/logo.png") no-repeat;
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+.header h1.logo a span {
+  display: none;
+}
+.header .add_vacancy {
+  position: absolute;
+}
+.header .price {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 1px #fff;
+  padding: 1px 3px;
+}
+.search {
+  padding: 0.6em 0;
+  word-spacing: 0;
+  background: #000000;
+}
+.search a.icon_favorite {
+  margin: 0 1em 0 2em;
+}
+.jobs {
+  width: 70%;
+  float: left;
+}
+.jobs .jobs_list {
+  width: 100%;
+  padding: 1.2em;
+  display: table;
+  font-size: 0.9em;
+}
+.jobs .jobs_list ul.job {
+  display: table-row;
+  overflow: hidden;
+}
+.jobs .jobs_list ul.job li {
+  display: table-cell;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  vertical-align: middle;
+  padding: 1em;
+}
+.jobs .jobs_list ul.job li.favorite {
+  width: 19px;
+}
+.jobs .jobs_list ul.job li.icon {
+  width: 19px;
+}
+.jobs .jobs_list ul.job li.icon div.icon {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #eee;
+  border-radius: 60px;
+  background: #fff;
+  text-align: center;
+}
+.jobs .jobs_list ul.job li.icon div.icon img {
+  margin-top: 5px;
+}
+.jobs .jobs_list ul.job li.icon div.icon:hover {
+  border: 1px solid transparent;
+  box-shadow: 0 0 4px 1px #f8d783;
+}
+.jobs .jobs_list ul.job li .title {
+  text-decoration: underline;
+  font-weight: bold;
+  line-height: 2.4em;
+}
+.jobs .jobs_list ul.job li .company {
+  display: block;
+}
+.jobs .jobs_list ul.job:hover {
+  background: #eee;
+}
+.jobs .control {
+  padding-bottom: 1em;
+  text-align: center;
+}
+.jobs .control a {
+  font-size: 1.4em;
+}
+.special {
+  background: #F9F5E4;
+}
+.special .icon {
+  border: 1px solid transparent;
+}
+.sidebar {
+  float: right;
+  width: 30%;
+}
+.sidebar .filter_block {
+  margin: 1em 1em 1em 0;
+  padding: 1em;
+  background: rgba(0, 179, 81, 0.19999999999999996);
+  border-radius: 6px;
+}
+.sidebar .filter_block h2 {
+  color: #00b351;
+  font-size: 1.3em;
+  font-weight: normal;
+  margin: 0 0 0.6em 0;
+}
+.sidebar .filter_block input {
+  width: 100%;
+}
+a.icon_favorite {
+  vertical-align: middle;
+  display: inline-block;
+  width: 19px;
+  height: 16px;
+  background: url("https://d3dma7a8zw52bz.cloudfront.net/assets/icons/star-sprite-e886ab53ef30773a5e2d510cd10d2ec7.png") no-repeat 0 0;
+}
+.price {
+  font-family: 'PT Sans', serif;
+}
+body {
+  background: #eeeeee;
+  color: #333333;
+  font-size: 0.875em;
+}
+body a:link,
+body a:visited {
+  color: #4183c4;
+}
+.shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.footer {
+  font-size: 0.76em;
+  margin: 0 auto;
+  padding: 1.6em;
+  width: 80%;
+  text-align: center;
+  color: #666;
+  text-shadow: 1px 1px 1px #fff;
+}
+.footer a {
+  color: #555;
+}

@@ -1,0 +1,45 @@
+@import "structure";
+@import "form";
+@import "header";
+@import "home";
+@import "sidebar";
+@import "sprite";
+
+@bg: #eee;
+@bgSearch: #000;
+@font: #333;
+@border: #eee;
+@link: #4183c4;
+
+.price {
+  font-family: 'PT Sans', serif;
+}
+
+body {
+  background: @bg;
+  color: @font;
+  font-size: 0.875em;
+  a:link, a:visited {
+    color: @link;
+  }
+}
+
+.shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.footer {
+  font-size: 0.76em;
+  margin: 0 auto;
+  padding: 1.6em;
+  width: 80%;
+  text-align: center;
+  color: #666;
+  text-shadow: 1px 1px 1px #fff;
+  a {
+    color: #555;
+  }
+}
