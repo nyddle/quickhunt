@@ -1,0 +1,75 @@
+.search {
+  padding: 0.6em 0;
+  word-spacing: 0;
+  background: #000;
+}
+.search a.icon_favorite {
+  margin: 0 1em 0 2em;
+}
+.jobs {
+  width: 70%;
+  float: left;
+}
+.jobs .jobs_list {
+  width: 100%;
+  padding: 1.2em;
+  display: table;
+  font-size: 0.9em;
+}
+.jobs .jobs_list ul.job {
+  display: table-row;
+  overflow: hidden;
+}
+.jobs .jobs_list ul.job li {
+  display: table-cell;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  padding: 1em;
+}
+.jobs .jobs_list ul.job li.favorite {
+  width: 19px;
+}
+.jobs .jobs_list ul.job li.icon {
+  width: 19px;
+}
+.jobs .jobs_list ul.job li.icon div.icon {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #eee;
+  border-radius: 60px;
+  background: #fff;
+  text-align: center;
+}
+.jobs .jobs_list ul.job li.icon div.icon img {
+  margin-top: 5px;
+}
+.jobs .jobs_list ul.job li.icon div.icon:hover {
+  border: 1px solid transparent;
+  box-shadow: 0 0 4px 1px #f8d783;
+}
+.jobs .jobs_list ul.job li .title {
+  text-decoration: underline;
+  font-weight: bold;
+  line-height: 2.4em;
+}
+.jobs .jobs_list ul.job li .company {
+  display: block;
+}
+.jobs .jobs_list ul.job:hover {
+  background: #eee;
+}
+.jobs .control {
+  padding-bottom: 1em;
+  text-align: center;
+}
+.jobs .control a {
+  font-size: 1.4em;
+}
+.special {
+  background: #F9F5E4;
+}
+.special .icon {
+  border: 1px solid transparent;
+}

@@ -52,9 +52,10 @@ require([
   'underscore',
   'backbone',
   'collections/Jobs',
-], function($, _, Backbone) {
+  'views/JobView'
+], function($, _, Backbone, Jobs, JobView) {
 
-  console.log(',kz')
-
+  var jobs = new Jobs();
+  var jobView = new JobView({ collection: jobs });
 
 });

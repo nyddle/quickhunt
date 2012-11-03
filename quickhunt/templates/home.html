@@ -8,134 +8,28 @@
   <div class="jobs">
 
     <div class="jobs_list">
-      <ul class="job special">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
-      <ul class="job">
-        <li class="favorite">
-          <a class="icon_favorite" href=""></a>
-        </li>
-        <li class="icon">
-          <div class="icon">
-            <img src="static/img/yandex.png" alt="" width="50" height="50">
-          </div>
-        </li>
-        <li>
-          <a class="title" href="">Проектироващик интерфейсов</a>
-          <span class="company">Yandex</span>
-        </li>
-        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
-        <li>Москва</li>
-      </ul>
+      {% raw %}
+      <script id="job_template" type="text/x-handlebars-template">
+        {{#each jobs}}
+          <ul class="job special">
+            <li class="favorite">
+              <a class="icon_favorite" href=""></a>
+            </li>
+            <li class="icon">
+              <div class="icon">
+                <img src="{{company_logo}}" alt="" width="50" height="50">
+              </div>
+            </li>
+            <li>
+              <a class="title" href="/jobs/{{objectid}}">{{title}}</a>
+              <span class="company">{{company_name}}</span>
+            </li>
+            <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+            <li>Москва</li>
+          </ul>
+        {{/each}}
+      </script>
+      {% endraw %}
     </div>
 
     <div class="control">
