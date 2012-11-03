@@ -1,0 +1,23 @@
+.header h1.logo {
+  text-align: center;
+}
+.header h1.logo a {
+  background: url("/static/img/logo.png") no-repeat;
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+.header h1.logo a span {
+  display: none;
+}
+.header .add_vacancy {
+  position: absolute;
+}
+.header .price {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 1px #fff;
+  padding: 1px 3px;
+}

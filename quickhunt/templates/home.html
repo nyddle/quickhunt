@@ -2,171 +2,160 @@
 {% block title %}Квик Хант{% endblock %}
 {% block content %}
   <div class="search">
-    <!-- <svg>
-      <polygon points="24,10 250,190 160,24" style="fill: #000;stroke-width:1;" />
-    </svg> -->
-
-    <!-- <a class="favorites" href="/favorites"><span class="badge">4</span></a> -->
+    <a class="icon_favorite" href="/favorites"><!--<span class="badge">4</span>--></a>
     <input type="search" placeholder="Search" />
   </div>
   <div class="jobs">
 
-    <div class="job job_special">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon">
-          <img src="static/img/yandex.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">Проектироващик интерфейсов</span>
+    <div class="jobs_list">
+      <ul class="job special">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
           <span class="company">Yandex</span>
-        </div>
-        <div class="salary"><span class="price">70&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Москва</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite favorite_selected" href=""></a>
-      <a href="" class="job">
-        <div class="icon" style="background: #d82232; border: none;">
-          <img src="static/img/parallels.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">Разработчик на ObjectiveC</span>
-          <span class="company">Parallels</span>
-        </div>
-        <div class="salary"><span class="price">65&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Петропавловск-Камчатский</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon">
-          <img src="static/img/lingualeo.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">JavaScript-разработчик</span>
-          <span class="company">LinguaLeo</span>
-        </div>
-        <div class="salary"><span class="price">90&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Москва</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon" style="background: #fe0000; border: none;">
-          <img src="static/img/mtv.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">PHP-программист</span>
-          <span class="company">MTV</span>
-        </div>
-        <div class="salary"><span class="price">70&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Санкт-Петербург</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon" style="background: #004b88; border: none;">
-          <img src="static/img/mailru.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">Разработчик на PHP</span>
-          <span class="company">Mail.ru</span>
-        </div>
-        <div class="salary"><span class="price">65&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Симферополь</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite favorite_selected" href=""></a>
-      <a href="" class="job">
-        <div class="icon">
-          <img src="static/img/yandex.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">Проектироващик интерфейсов</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
           <span class="company">Yandex</span>
-        </div>
-        <div class="salary"><span class="price">70&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Москва</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon">
-          <img src="static/img/lingualeo.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">JavaScript-разработчик</span>
-          <span class="company">LinguaLeo</span>
-        </div>
-        <div class="salary"><span class="price">90&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Владивосток</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon" style="background: #d82232; border: none;">
-          <img src="static/img/parallels.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">Разработчик на ObjectiveC</span>
-          <span class="company">Parallels</span>
-        </div>
-        <div class="salary"><span class="price">65&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Москва</div>
-      </a>
-    </div>
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon" style="background: #004b88; border: none;">
-          <img src="static/img/mailru.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">Разработчик на PHP</span>
-          <span class="company">Mail.ru</span>
-        </div>
-        <div class="salary"><span class="price">65&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Москва</div>
-      </a>
-    </div>
-
-
-    <div class="job">
-      <a id="favorite" class="favorite" href=""></a>
-      <a href="" class="job">
-        <div class="icon" style="background: #fe0000; border: none;">
-          <img src="static/img/mtv.png" alt="" width="50" height="50">
-        </div>
-        <div class="main">
-          <span class="title">PHP-программист</span>
-          <span class="company">MTV</span>
-        </div>
-        <div class="salary"><span class="price">70&nbsp;000&nbsp;&#8399;</span></div>
-        <div class="location">Москва</div>
-      </a>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
+          <span class="company">Yandex</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
+          <span class="company">Yandex</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
+          <span class="company">Yandex</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
+          <span class="company">Yandex</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
+          <span class="company">Yandex</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
+      <ul class="job">
+        <li class="favorite">
+          <a class="icon_favorite" href=""></a>
+        </li>
+        <li class="icon">
+          <div class="icon">
+            <img src="static/img/yandex.png" alt="" width="50" height="50">
+          </div>
+        </li>
+        <li>
+          <a class="title" href="">Проектироващик интерфейсов</a>
+          <span class="company">Yandex</span>
+        </li>
+        <li class="salary price">70&nbsp;000&nbsp;&#8399;</li>
+        <li>Москва</li>
+      </ul>
     </div>
 
     <div class="control">
-      <p><a href="">ещё</a> или <a href="">избранное</a></p>
+      <a href="">ещё</a> или <a href="">избранное</a>
     </div>
 
-
-
   </div>
+
+  <div class="sidebar">
+    <div class="filter_block">
+      <h2>Найти вакансию</h2>
+      <input type="text" name="" id="">
+      на <input type="checkbox" name="" id=""> полный/частичный рабочий день
+      в <input type="checkbox" name="" id=""> офис/удаленно
+      с зарплатой <input type="text" name="" id=""> ... <input type="text" name="" id="">
+      <select name="" id="">
+        <option value="">Руб.</option>
+      </select>
+      в <input type="text" name="" id="">
+    </div>
+  </div>
+
 {% endblock %}
