@@ -5,14 +5,25 @@
   <script type="text/javascript" src="/static/js/jquery.loadJSON.js"></script>
   <h1>Добавить вакансию</h1>
   <form type="POST" name="add_job" action="" id="addjobform">
-    <input type="hidden" name="objectid" id="oidinput" value="{% print job %}"/>    
+    <input type="hidden" name="objectid" id="oidinput" value="{% print job %}"/>
     <!-- Vacancy -->
 
     <p>
       <label>Вакансия: <input type="text" name="title"></label>
     </p>
     <p>
-      <label>Категория: <input type="password" name="category"></label>
+      <label>Категория:
+        <select name="category">
+          <option value="frontend">Фронтенд</option>
+          <option value="backend">Бэкенд</option>
+          <option value="applications">Приложения</option>
+          <option value="administration">Администрирование</option>
+          <option value="management">Управление</option>
+          <option value="design">Дизайн</option>
+          <option value="testing">Тестирование</option>
+          <option value="other">Другое</option>
+        </select>
+    </label>
     </p>
     <p>
       <label>Занятость:
