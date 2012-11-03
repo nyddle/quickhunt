@@ -81,8 +81,9 @@ def create_app(env='debug'):
 
         return resp
 
+    @app.route('/api/search/', methods = ['GET'])
     @app.route('/api/search/<query>', methods = ['GET'])
-    def search(query):
+    def search(query=None):
         jobs = []
         for job in jobs_collection.find():
             job['_id'] = str(job['_id'])
