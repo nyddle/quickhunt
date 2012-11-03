@@ -81,6 +81,16 @@ def create_app(env='debug'):
 
         return resp
 
+    @app.route('/search/<query>', methods = ['GET'])
+    def search(query):
+        jobs = []
+        for job in jobs_collection.find():
+            job['_id'] = str(job['_id'])
+            jobs.append(job)
+        return jsonify({'result':jobs})
+
+
+
     @app.route('/jobs/<jobid>', methods = ['GET'])
     def get_job(jobid):
         found_job = jobs_collection.find_one({'_id':bson.ObjectId(oid=str(jobid))});
