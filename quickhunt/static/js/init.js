@@ -34,7 +34,7 @@ $(document).ready(function(){
             $.ajax({
               contentType: "application/json",
               type: "POST",
-              url: "/jobs/" + $('#oidinput').attr('value'),
+              url: "/api/jobs/" + $('#oidinput').attr('value'),
               data: JSON.stringify($('#addjobform').serializeJSON())
             }).done(function( msg ) {
               alert( "Server returned: " + msg );
@@ -48,7 +48,7 @@ $(document).ready(function(){
         $.ajax({
           contentType: "application/json",
           type: "GET",
-          url: '/jobs/' + $('#oidinput').attr('value')
+          url: '/api/jobs/' + $('#oidinput').attr('value')
         }).done(function( msg ) {
           $('#addjobform').loadJSON(msg);
           addbutton();

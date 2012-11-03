@@ -81,7 +81,7 @@ def create_app(env='debug'):
 
         return resp
 
-    @app.route('/search/<query>', methods = ['GET'])
+    @app.route('/api/search/<query>', methods = ['GET'])
     def search(query):
         jobs = []
         for job in jobs_collection.find():
@@ -91,7 +91,7 @@ def create_app(env='debug'):
 
 
 
-    @app.route('/jobs/<jobid>', methods = ['GET'])
+    @app.route('/api/jobs/<jobid>', methods = ['GET'])
     def get_job(jobid):
         found_job = jobs_collection.find_one({'_id':bson.ObjectId(oid=str(jobid))});
         found_job['id'] = str(found_job['_id'])
@@ -103,7 +103,7 @@ def create_app(env='debug'):
         #    return not_found()
         #return undef
 
-    @app.route('/jobs/<jobid>', methods = ['POST'])
+    @app.route('/api/jobs/<jobid>', methods = ['POST'])
     def create_job(jobid):
         js = json.dumps(request.data)
         print 'js:' + str(js)
@@ -115,7 +115,7 @@ def create_app(env='debug'):
         resp = Response(js, status=200, mimetype='application/json')
         return resp
 
-    @app.route('/jobs/<jobid>', methods = ['DELETE'])
+    @app.route('/api/jobs/<jobid>', methods = ['DELETE'])
     def delete_job(jobid):
         response = jobs_collection.remove({'_id':bson.ObjectId(jobid)});
         if (response == None):
