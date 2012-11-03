@@ -42,18 +42,7 @@ $(document).ready(function(){
         });
     }
 
-    if ($('#oidinput').attr('value') == 'new') {
-        addbutton();
-    } else {
-        $.ajax({
-          contentType: "application/json",
-          type: "GET",
-          url: '/api/jobs/' + $('#oidinput').attr('value')
-        }).done(function( msg ) {
-          $('#addjobform').loadJSON(msg);
-          addbutton();
-        });
-    }
+
 });
 
 
@@ -61,9 +50,11 @@ $(document).ready(function(){
 require([
   'jquery',
   'underscore',
-  'backbone'
+  'backbone',
+  'collections/Jobs',
 ], function($, _, Backbone) {
 
+  console.log(',kz')
 
 
 });

@@ -59,7 +59,7 @@ input[type="button"]:active {
 .search {
   padding: 0.6em 0;
   word-spacing: 0;
-  background: #000000;
+  background: #000;
 }
 .search a.icon_favorite {
   margin: 0 1em 0 2em;
@@ -80,8 +80,8 @@ input[type="button"]:active {
 }
 .jobs .jobs_list ul.job li {
   display: table-cell;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   vertical-align: middle;
   padding: 1em;
 }
