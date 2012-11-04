@@ -60,6 +60,13 @@ def create_app(env='debug'):
             flash('Error occured')
         return redirect(url_for('list'))
 
+    @app.route('/jobs/<jobid>')
+    def inside(jobid):
+        found_job = jobs_collection.find_one({'_id':bson.ObjectId(oid=str(jobid))});
+        found_job['id'] = str(found_job['_id'])
+        found_job['objectid'] = str(found_job['_id'])
+        found_job['_id'] = str(found_job['_id'])
+        return render_template('inside.html', job=found_job)
 
 
     @app.route('/edit/<jobid>')

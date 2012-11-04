@@ -29,6 +29,7 @@ $(document).ready(function(){
     return json;
   }
 
+
    function addbutton() {
        $('#addjobbutton').click(function() {
             $.ajax({
@@ -38,15 +39,16 @@ $(document).ready(function(){
               data: JSON.stringify($('#addjobform').serializeJSON())
             }).done(function( msg ) {
               alert( "Server returned: " + msg );
+              document.location.href = '/list';
             });
         });
     }
 
+   addbutton();
 
 });
 
-
-
+/*
 require([
   'jquery',
   'underscore',
@@ -59,3 +61,5 @@ require([
   var jobView = new JobView({ collection: jobs });
 
 });
+
+*/
