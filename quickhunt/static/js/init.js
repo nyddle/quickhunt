@@ -75,12 +75,9 @@ requirejs([
   'jquery',
   'underscore',
   'backbone',
-  'handlebars',
   'app'
-], function($, _, Backbone, Handlebars, app) {
+], function($, _, Backbone, App) {
 
-  console.log(Handlebars);
-
-  app.init();
+  var app = new App();
 
 });

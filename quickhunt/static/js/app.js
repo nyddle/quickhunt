@@ -1,13 +1,29 @@
 define([
+  'jquery',
+  'underscore',
+  'backbone',
   'collections/Jobs',
   'views/JobView'
-], function(Jobs, JobView) {
+], function($, _, Backbone, Jobs, JobView) {
 
-  var init = function() {
-    var jobs = new Jobs();
-    var jobView = new JobView({ collection: jobs });
-  };
+    var Router = Backbone.Router.extend({
+      initialize: function() {
+        //this.mainView = mainView;
+        Backbone.history.start({pushState: true})
+      },
+      routes: {
+        '': 'home',
+        'edit/new': 'new'
+      },
+      home: function() {
+        var jobs = new Jobs(),
+            jobView = new JobView({ collection: jobs });
+      },
+      new: function() {
+        alert('new');
+      }
+    });
 
-  return { init: init };
+    return Router;
 
 });

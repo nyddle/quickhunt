@@ -1,13 +1,9 @@
-console.log('ins', Handlebars);
-
 define([
   'jquery',
   'underscore',
   'backbone',
   'handlebars'
 ], function($, _, Backbone, Handlebars) {
-
-  console.log('Handlebars', Handlebars);
 
   var JobView = Backbone.View.extend({
     el: $('.jobs_list'),
