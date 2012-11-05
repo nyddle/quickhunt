@@ -2,7 +2,7 @@
 {% block title %}Добавить вакансию{% endblock %}
 {% block content %}
   <h1>Добавить вакансию</h1>
-  <form type="POST" name="add_job" action="" id="addjobform">
+  <form method="post" name="add_job" action="" id="add_job">
     <input type="hidden" name="objectid" id="oidinput" value="{% print job %}"/>
     <!-- Vacancy -->
 
@@ -102,6 +102,4 @@
     </p>
 
   </form>
-      <input type="button" value="Add" id="addjobbutton">
-      {% endblock %}
-
+{% endblock %}

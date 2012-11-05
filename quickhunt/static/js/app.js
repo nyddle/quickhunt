@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'collections/Jobs',
-  'views/JobView'
-], function($, _, Backbone, Jobs, JobView) {
+  'views/JobView',
+  'views/AddView'
+], function($, _, Backbone, Jobs, JobView, AddView) {
 
     var Router = Backbone.Router.extend({
       initialize: function() {
@@ -12,7 +13,7 @@ define([
         Backbone.history.start({pushState: true})
       },
       routes: {
-        '': 'home',
+        '':         'home',
         'edit/new': 'new'
       },
       home: function() {
@@ -20,8 +21,9 @@ define([
             jobView = new JobView({ collection: jobs });
       },
       new: function() {
-        alert('new');
+        var addView = new AddView();
       }
+
     });
 
     return Router;
