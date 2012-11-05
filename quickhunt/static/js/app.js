@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 
   $.fn.serializeJSON = function(){
     var json = {}
@@ -29,7 +29,6 @@ $(document).ready(function(){
     return json;
   }
 
-
    function addbutton() {
        $('#addjobbutton').click(function() {
             $.ajax({
@@ -46,10 +45,30 @@ $(document).ready(function(){
 
    addbutton();
 
+});*/
+
+require.config({
+
+  baseUrl: '/static/js/',
+
+  paths: {
+    jquery: 'libs/jquery',
+    underscore: 'libs/underscore',
+    backbone: 'libs/backbone',
+    handlebars: 'libs/handlebars',
+    modernizr: 'libs/modernizr'
+  },
+
+  shim: {
+    backbone: {
+      deps: ['jquery', 'underscore', 'handlebars'],
+      exports: 'Backbone'
+    }
+  }
+
 });
 
-/*
-require([
+requirejs([
   'jquery',
   'underscore',
   'backbone',
@@ -61,5 +80,3 @@ require([
   var jobView = new JobView({ collection: jobs });
 
 });
-
-*/
