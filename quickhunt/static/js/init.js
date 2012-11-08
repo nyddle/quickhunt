@@ -81,3 +81,4 @@ requirejs([
   var app = new App();
 
 });
+
