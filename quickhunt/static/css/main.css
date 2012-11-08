@@ -29,6 +29,26 @@ input[type="search"] {
 input[type="search"]:focus {
   box-shadow: 0 0 4px 1px #f8d783;
 }
+form {
+  padding: 2em;
+}
+form label strong {
+  display: inline-block;
+  text-align: right;
+  width: 30%;
+  margin-right: 2em;
+}
+form .leftColumn {
+  float: left;
+  width: 50%;
+}
+form .rightColumn {
+  float: right;
+  width: 50%;
+}
+form .submitForm {
+  clear: both;
+}
 input[type="button"]:active {
   -moz-box-shadow: 0 2px 6px black;
   -webkit-box-shadow: 0 2px 6px black;

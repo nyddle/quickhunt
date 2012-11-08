@@ -1,103 +1,110 @@
 {% extends "base.html" %}
 {% block title %}Добавить вакансию{% endblock %}
 {% block content %}
-  <h1>Добавить вакансию</h1>
+
   <form method="post" name="add_job" action="" id="add_job">
     <input type="hidden" name="objectid" id="oidinput" value="{% print job %}"/>
     <!-- Vacancy -->
+    <div class="leftColumn">
+      <p>
+        <label><strong>Вакансия:</strong> <input data-value="job.title" type="text" name="title"></label>
+      </p>
+      <p>
+        <label><strong>Категория:</strong>
+          <select name="category">
+            <option value="frontend">Фронтенд</option>
+            <option value="backend">Бэкенд</option>
+            <option value="applications">Приложения</option>
+            <option value="administration">Администрирование</option>
+            <option value="management">Управление</option>
+            <option value="design">Дизайн</option>
+            <option value="testing">Тестирование</option>
+            <option value="other">Другое</option>
+          </select>
+      </label>
+      </p>
+      <p>
+        <label><strong>Занятость:</strong>
+          <span><input type="radio" name="employment" value="full_time" checked="checked"> полная</span>
+          <span><input type="radio" name="employment" value="part_time"> частичная</span>
+        </label>
+      </p>
+      <p>
+        <label><strong>Рабочее место:</strong>
+          <span><input type="radio" name="workplace" value="office" checked="checked"> офис</span>
+          <span><input type="radio" name="workplace" value="remote"> удаленно</span>
+        </label>
+      </p>
+      <p>
+        <label><strong>Заработная плата:</strong> <input type="text" name="salary"></label>
+        </label>
+      </p>
+      <p>
+        <label><strong>Краткое описание:</strong>
+          <textarea name="description"></textarea>
+        </label>
+      </p>
+      <p>
+        <label><strong>Что нужно делать:</strong>
+          <textarea name="charge"></textarea>
+        </label>
+      </p>
+      <p>
+        <label><strong>Требуемые навыки:</strong>
+          <textarea name="experience"></textarea>
+        </label>
+      </p>
+      <p>
+        <label><strong>Приветствуется:</strong>
+          <textarea name="additional"></textarea>
+        </label>
+      </p>
+      <p>
+        <label><strong>Условия:</strong>
+          <textarea name="terms"></textarea>
+        </label>
+      </p>
 
-    <p>
-      <label>Вакансия: <input data-value="job.title" type="text" name="title"></label>
-    </p>
-    <p>
-      <label>Категория:
-        <select name="category">
-          <option value="frontend">Фронтенд</option>
-          <option value="backend">Бэкенд</option>
-          <option value="applications">Приложения</option>
-          <option value="administration">Администрирование</option>
-          <option value="management">Управление</option>
-          <option value="design">Дизайн</option>
-          <option value="testing">Тестирование</option>
-          <option value="other">Другое</option>
-        </select>
-    </label>
-    </p>
-    <p>
-      <label>Занятость:
-        <span><input type="radio" name="employment" value="full_time" checked="checked"> полная</span>
-        <span><input type="radio" name="employment" value="part_time"> частичная</span>
-      </label>
-    </p>
-    <p>
-      <label>Рабочее место:
-        <span><input type="radio" name="workplace" value="office" checked="checked"> офис</span>
-        <span><input type="radio" name="workplace" value="remote"> удаленно</span>
-      </label>
-    </p>
-    <p>
-      <label>Краткое описание:
-        <textarea name="description"></textarea>
-      </label>
-    </p>
-    <p>
-      <label>Что нужно делать:
-        <textarea name="charge"></textarea>
-      </label>
-    </p>
-    <p>
-      <label>Требуемые навыки:
-        <textarea name="experience"></textarea>
-      </label>
-    </p>
-    <p>
-      <label>Приветствуется:
-        <textarea name="additional"></textarea>
-      </label>
-    </p>
-    <p>
-      <label>Условия:
-        <textarea name="terms"></textarea>
-      </label>
-    </p>
+      <!--  Other fields -->
+
+      <p>
+        <label><strong>Промо-код:</strong> <input type="text" name="promo_code"></label>
+      </p>
+
+    </div>
 
     <div class="rightColumn">
 
     <!-- Company -->
       <p>
-        <label>Компания: <input type="text" name="company_name"></label>
+        <label><strong>Компания:</strong> <input type="text" name="company_name"></label>
       </p>
       <p>
-        <label>Описание:
+        <label><strong>Описание:</strong>
           <textarea name="company_description"></textarea>
         </label>
-        <span>ограничение 140 символов</span>
       </p>
       <p>
-        <label>Лого: <input type="file" name="company_logo"></label>
+        <label><strong>Лого:</strong> <input type="file" name="company_logo"></label>
       </p>
 
-      <!--  Other fields -->
       <p>
-        <label>Город: <input type="text" name="city"></label>
+        <label><strong>Город:</strong> <input type="text" name="city"></label>
       </p>
       <p>
-        <label>Адрес: <input type="text" name="address"></label>
+        <label><strong>Адрес:</strong> <input type="text" name="address"></label>
       </p>
       <p>
-        <label>Имя автора: <input type="text" name="author"></label>
+        <label><strong>Имя автора:</strong> <input type="text" name="author"></label>
       </p>
       <p>
-        <label>Эл. почта: <input type="text" name="email"></label>
-      </p>
-      <p>
-        <label>Промо-код: <input type="text" name="promo_code"></label>
+        <label><strong>Эл. почта:</strong> <input type="text" name="email"></label>
       </p>
 
     </div>
 
     <!--  Submit -->
-    <p>
+    <p class="submitForm">
       <input type="submit" value="Предпросмотр" >
     </p>
 
