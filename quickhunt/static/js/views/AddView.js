@@ -53,3 +53,4 @@ define([
   return AddView;
 
 });
+

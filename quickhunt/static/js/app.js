@@ -35,3 +35,4 @@ define([
     return Router;
 
 });
+

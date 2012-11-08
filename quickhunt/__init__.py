@@ -13,7 +13,6 @@ from pymongo import Connection
 
 def create_app(env='debug'):
 
-    SECRET_KEY = 'development key'
     """ TODO:
     if config is None:
         config = os.path.join(app.root_path, 'production.cfg')
@@ -22,6 +21,10 @@ def create_app(env='debug'):
     """
     app = Flask(__name__)
     app.config.from_object(__name__)
+
+    app.config.update(
+        SECRET_KEY=os.urandom(20)
+                )
     if (env == 'debug'):
         app.debug=True
     if (env == 'prod'):
@@ -111,17 +114,24 @@ def create_app(env='debug'):
         #    return not_found()
         #return undef
 
-    @app.route('/api/jobs/<jobid>', methods = ['POST'])
+    @app.route('/api/jobs/new', methods = ['POST'])
+    def create_job(jobid):
+        js = json.dumps(request.data)
+        json_data = json.loads(request.data)
+        jobs_collection.save(json_data)
+        resp = Response(js, status=200, mimetype='application/json')
+        return resp
+
+    @app.route('/api/jobs/<jobid>', methods = ['PUT'])
     def create_job(jobid):
         js = json.dumps(request.data)
         print 'js:' + str(js)
         json_data = json.loads(request.data)
-        if (json_data['objectid'] != 'new'):
-            json_data['_id'] = bson.ObjectId(json_data['objectid'])
+        json_data['_id'] = bson.ObjectId(json_data['objectid'])
         jobs_collection.save(json_data)
-        print str(json_data)
         resp = Response(js, status=200, mimetype='application/json')
         return resp
+
 
     @app.route('/api/jobs/<jobid>', methods = ['DELETE'])
     def delete_job(jobid):
