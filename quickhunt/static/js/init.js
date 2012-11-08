@@ -56,7 +56,8 @@ require.config({
     underscore: 'libs/underscore',
     backbone: 'libs/backbone',
     handlebars: 'libs/handlebars',
-    modernizr: 'libs/modernizr'
+    modernizr: 'libs/modernizr',
+    modelBinder: 'libs/backbone.modelBinder'
   },
 
   shim: {
@@ -64,8 +65,14 @@ require.config({
       deps: ['jquery', 'underscore'],
       exports: 'Backbone'
     },
+    underscore: {
+      exports: '_'
+    },
     handlebars: {
       exports: 'Handlebars'
+    },
+    modelBinder: {
+      deps: ['backbone']
     }
   }
 

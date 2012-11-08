@@ -2,32 +2,29 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'libs/backbone.syphon'
+  'modelBinder'
 ], function($, _, Backbone) {
 
   var AddView = Backbone.View.extend({
 
-    el: $('#add_job'),
+    modelBinder: undefined,
+
+    el: $('form#add_job'),
 
     events: {
-      'submit': 'create'
+      'submit': 'submit'
     },
 
     initialize: function() {
-
+      this.modelBinder = new Backbone.ModelBinder();
+      this.render();
     },
 
-    create: function(event) {
+    submit: function(event) {
 
-      var data = Backbone.Syphon.serialize(this);
+      event.preventDefault();
 
-      Jobs = Backbone.Model.extend({
-        url: '/api/jobs/new'
-      });
-
-      var job = new Jobs();
-
-      job.save(data, {
+      this.model.save({
         success: function(model, response) {
           console.log(response);
           document.location.href = '/';
@@ -37,11 +34,18 @@ define([
         }
       });
 
-      event.preventDefault();
     },
 
     render: function() {
-
+      var self = this;
+      this.model.fetch({
+        success: function() {
+          self.modelBinder.bind(self.model, self.el);
+        },
+        error: function() {
+          alert('error');
+        }
+      });
     }
 
   });
