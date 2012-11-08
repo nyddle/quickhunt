@@ -5,8 +5,9 @@ define([
   'collections/Jobs',
   'views/JobView',
   'views/AddView',
+  'views/EditView',
   'models/Job'
-], function($, _, Backbone, Jobs, JobView, AddView, Job) {
+], function($, _, Backbone, Jobs, JobView, AddView, EditView, Job) {
 
     var Router = Backbone.Router.extend({
       initialize: function() {
@@ -23,11 +24,18 @@ define([
             jobView = new JobView({ collection: jobs });
       },
       new: function() {
-        var addView = new AddView();
+
+        var Job = Backbone.Model.extend({
+          url: '/api/jobs/new'
+        });
+
+        var job = new Job(),
+            addView = new AddView({ model: job });
+
       },
       edit: function() {
         var job = new Job({ id: $('#oidinput').attr('value') }),
-            addView = new AddView({ model: job });
+            editView = new EditView({ model: job });
       }
 
     });

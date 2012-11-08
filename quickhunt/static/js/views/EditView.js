@@ -5,7 +5,7 @@ define([
   'modelBinder'
 ], function($, _, Backbone) {
 
-  var AddView = Backbone.View.extend({
+  var EditView = Backbone.View.extend({
 
     modelBinder: undefined,
 
@@ -17,7 +17,7 @@ define([
 
     initialize: function() {
       this.modelBinder = new Backbone.ModelBinder();
-      this.modelBinder.bind(this.model, this.el);
+      this.render();
     },
 
     submit: function(event) {
@@ -37,12 +37,20 @@ define([
     },
 
     render: function() {
-
+      var self = this;
+      this.model.fetch({
+        success: function() {
+          self.modelBinder.bind(self.model, self.el);
+        },
+        error: function() {
+          alert('error');
+        }
+      });
     }
 
   });
 
-  return AddView;
+  return EditView;
 
 });
 

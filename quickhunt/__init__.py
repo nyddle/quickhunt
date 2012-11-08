@@ -115,7 +115,7 @@ def create_app(env='debug'):
         #return undef
 
     @app.route('/api/jobs/new', methods = ['POST'])
-    def create_job(jobid):
+    def create_job():
         js = json.dumps(request.data)
         json_data = json.loads(request.data)
         jobs_collection.save(json_data)
@@ -123,7 +123,7 @@ def create_app(env='debug'):
         return resp
 
     @app.route('/api/jobs/<jobid>', methods = ['PUT'])
-    def create_job(jobid):
+    def update_job(jobid):
         js = json.dumps(request.data)
         print 'js:' + str(js)
         json_data = json.loads(request.data)
