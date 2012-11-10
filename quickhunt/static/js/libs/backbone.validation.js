@@ -6,6 +6,14 @@
 // Documentation and full license available at:
 // http://thedersen.com/projects/backbone-validation
 
+(function (factory) {
+  if (typeof exports === 'object') {
+    module.exports = factory(require('backbone'), require('underscore'));
+  } else if (typeof define === 'function' && define.amd) {
+    define(['backbone', 'underscore'], factory);
+  }
+}(function (Backbone, _) {
+
 Backbone.Validation = (function(_){
   'use strict';
 
@@ -544,3 +552,6 @@ Backbone.Validation = (function(_){
 
   return Validation;
 }(_));
+
+  return Backbone.Validation;
+}));

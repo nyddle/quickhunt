@@ -67,6 +67,15 @@ rel="stylesheet" type="text/css" />
 
   </div>
 
+  {% raw %}
+  <div class="alert">
+    <script id="alert" type="text/x-handlebars-template">
+        <strong>{{label}}</strong> {{message}}.
+      </div>
+    </script>
+   </div>
+  {% endraw %}
+
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul class="flashes">

@@ -8,7 +8,8 @@ require.config({
     backbone: 'libs/backbone',
     handlebars: 'libs/handlebars',
     modernizr: 'libs/modernizr',
-    modelBinder: 'libs/backbone.modelBinder'
+    modelBinder: 'libs/backbone.modelBinder',
+    validation: 'libs/backbone.validation'
   },
 
   shim: {
