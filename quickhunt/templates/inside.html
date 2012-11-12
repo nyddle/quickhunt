@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Добавить вакансию{% endblock %}
+{% block content %}
+  <div class="job">
+    <div class="meta"></div>
+    <div>
+      <a class="icon_favorite" href="/favorite"></a>
+      <h2>{{job.title}}</h2>
+    </div>
+    <div>
+      {{job.description}}
+      <h3>Обязанности</h3>
+      {{job.charge}}
+      <h3>Навыки</h3>
+      {{job.experience}}
+      <h3>Приветствуется</h3>
+      {{job.additional}}
+      <h3>Условия</h3>
+      {{job.terms}}
+    </div>
+  </div>
+
+{% endblock %}
