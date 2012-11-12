@@ -151,6 +151,10 @@ input[type="button"]:active {
 .special .icon {
   border: 1px solid transparent;
 }
+.inside {
+  width: 70%;
+  float: left;
+}
 .sidebar {
   float: right;
   width: 30%;

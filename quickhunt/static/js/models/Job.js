@@ -5,7 +5,7 @@ define([
 ], function(_, Backbone){
 
   var Job = Backbone.Model.extend({
-    idAttribute: '_id',
+    //idAttribute: '_id',
     urlRoot: '/api/jobs',
 
     validation: {

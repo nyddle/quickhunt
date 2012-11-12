@@ -9,7 +9,8 @@ require.config({
     handlebars: 'libs/handlebars',
     modernizr: 'libs/modernizr',
     modelBinder: 'libs/backbone.modelBinder',
-    validation: 'libs/backbone.validation'
+    validation: 'libs/backbone.validation',
+    yandex: 'http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU'
   },
 
   shim: {
@@ -25,6 +26,9 @@ require.config({
     },
     modelBinder: {
       deps: ['backbone']
+    },
+    yandex: {
+      exports: 'ymaps'
     }
   }
 
