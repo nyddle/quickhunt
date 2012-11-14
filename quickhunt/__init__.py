@@ -42,8 +42,13 @@ def create_app(env='debug'):
 
 
     @app.route('/')
-    def hello():
+    def home():
         return render_template('home.html')
+
+    @app.route('/settings')
+    def settings():
+        return render_template('settings.html')
+
 
 
     @app.route('/list')
