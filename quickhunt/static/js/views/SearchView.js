@@ -9,7 +9,7 @@ define([
     el: $('#search'),
 
     events: {
-      'keypress': 'sendQuery'
+      'keyup': 'sendQuery'
     },
 
     initialize: function() {
@@ -17,10 +17,10 @@ define([
     },
 
     sendQuery: function(event) {
-      if ((event.keyCode || event.which) == 32) {
+      //if ((event.keyCode || event.which) == 32) {
         var query = this.$el.val();
         this.collection.search(query);
-      }
+      //}
     },
 
     render: function() {

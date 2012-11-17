@@ -25,7 +25,7 @@ define([
         var collection = this.collection.toJSON();
         $(this.el).html(this.template({jobs: collection}));
       } else {
-        alert('пусто');
+        $(this.el).html('<p class="empty">empty</p>');
       }
       return this;
     }
