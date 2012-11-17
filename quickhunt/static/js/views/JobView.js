@@ -13,15 +13,21 @@ define([
       var self = this;
       this.collection.fetch({
         success: function() {
+          self.template = Handlebars.compile( $("#job_template").html() );
+          self.collection.bind('all', self.render, self);
           self.render();
         }
       });
     },
 
     render: function() {
-      var collection = this.collection.toJSON();
-      var template = Handlebars.compile( $("#job_template").html() );
-      $(this.el).html(template({jobs: collection}));
+      if (this.collection.length > 0) {
+        var collection = this.collection.toJSON();
+        $(this.el).html(this.template({jobs: collection}));
+      } else {
+        alert('пусто');
+      }
+      return this;
     }
 
   });

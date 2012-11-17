@@ -7,9 +7,8 @@ define([
   'views/EditView',
   'views/InsideView',
   'views/SearchView',
-  'models/Job',
-  'models/Search'
-], function($, _, Backbone, Jobs, JobView, EditView, InsideView, SearchView, Job, Search) {
+  'models/Job'
+], function($, _, Backbone, Jobs, JobView, EditView, InsideView, SearchView, Job) {
 
     var Router = Backbone.Router.extend({
       initialize: function() {
@@ -22,9 +21,8 @@ define([
       },
       home: function() {
         var jobs = new Jobs(),
-            search = new Search(),
             jobView = new JobView({ collection: jobs }),
-            searchView = new SearchView({ model: search });
+            searchView = new SearchView({ collection: jobs });
       },
       edit: function(name) {
         var job = new Job(),

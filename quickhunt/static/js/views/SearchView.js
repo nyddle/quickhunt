@@ -17,8 +17,9 @@ define([
     },
 
     sendQuery: function(event) {
-      if (event.keyCode === 32) {
-        console.log(this.$el.val().split(' '));
+      if ((event.keyCode || event.which) == 32) {
+        var query = this.$el.val();
+        this.collection.search(query);
       }
     },
 
