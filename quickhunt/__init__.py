@@ -10,6 +10,11 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 import pymongo
 from pymongo import Connection
 
+import urllib2
+from redis_completion import RedisEngine
+import urlparse
+import redis
+
 
 def create_app(env='debug'):
 
@@ -39,7 +44,8 @@ def create_app(env='debug'):
     # connect to the database
     connection = Connection('mongodb://quickhunt:qhpassword@alex.mongohq.com:10013/app8222672')
     jobs_collection =  connection.app8222672.jobs
-
+    url = urlparse.urlparse('redis://:bSpyvbncbJCCMn6sjb@pikachu.ec2.myredis.com:6777')
+    autocomplete_engine = RedisEngine(host=url.hostname, port=url.port, password=url.password)
 
     @app.route('/')
     def home():
@@ -145,6 +151,16 @@ def create_app(env='debug'):
             return jsonify({success:'Success'})
         else:
             return jsonify({error:'Error'})
+
+    @app.route('/api/autocomplete/', methods = ['GET'])
+    def autocomplete():
+        js = {}
+        searchword = request.args.get('q', '')
+        if searchword:
+            js = json.dumps({'resilt': autocomplete_engine.search(searchword)})
+        else:
+            js = {'error':'invalid argument'}
+        return Response(js, status=200, mimetype='application/json')
 
     return app
 

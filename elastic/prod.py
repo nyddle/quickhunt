@@ -41,7 +41,7 @@ qr = {
     }
   }
 }
-query = { "query" : '{ "query" : { "text" : { "_all" : "scalaiascasc" } } }' }
+#query = { "query" : '{ "query" : { "text" : { "_all" : "scalaiascasc" } } }' }
 
 b = requests.get('http://5ce5fkv:wghahjd5zp60b9as@beech-4930933.us-east-1.bonsai.io/quickhunt/jobs/_search', data=json.dumps(qr))
 print b.text
