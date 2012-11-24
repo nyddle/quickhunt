@@ -17,10 +17,12 @@ define([
 
     search: function(query) {
 
-      var self = this;
+      var self = this,
+          searchUrl = 'http://5ce5fkv:wghahjd5zp60b9as@beech-4930933.us-east-1.bonsai.io/quickhunt/jobs/_search',
+          searchData = '{"query" : { "text" : { "_all" : "' + query + '" } } }';
 
       $.ajax({
-        url: 'http://5ce5fkv:wghahjd5zp60b9as@beech-4930933.us-east-1.bonsai.io/quickhunt/jobs/_search?source={"query" : { "text" : { "_all" : "' + query + '" } } }',
+        url: searchUrl + '?source=' + searchData,
         type: 'get',
         success: function(result) {
           var resultArr = [];

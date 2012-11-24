@@ -157,7 +157,7 @@ def create_app(env='debug'):
         js = {}
         searchword = request.args.get('q', '')
         if searchword:
-            js = json.dumps({'resilt': autocomplete_engine.search(searchword)})
+            js = json.dumps({'result': autocomplete_engine.search(searchword)})
         else:
             js = {'error':'invalid argument'}
         return Response(js, status=200, mimetype='application/json')
