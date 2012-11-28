@@ -51,7 +51,7 @@ requirejs([
   'visualSearch'
 ], function($, _, Backbone, App, VS) {
 
-  console.log(VS);
+  //console.log(VS);
 
   var app = new App();
 
