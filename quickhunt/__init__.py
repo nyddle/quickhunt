@@ -54,7 +54,7 @@ def create_app(env='debug'):
     def home():
         return render_template('home.html')
 
-    @app.route('/settings')
+    @app.route('/settings/')
     def settings():
         return render_template('settings.html')
 
@@ -90,6 +90,18 @@ def create_app(env='debug'):
     def edit(jobid):
         return render_template('add.html', job=jobid)
 
+    @app.errorhandler(404)
+    def page_not_found(e):
+            return render_template('404.html'), 404
+ 
+    # ==================== REGISTRATION ==================
+
+    @app.route('/logout')
+    def logout():
+        # remove the username from the session if it's there
+        session.pop('username', None)
+        return redirect(url_for('list'))
+
     @app.route('/registration')
     def registration():
         return render_template('registration.html')
@@ -97,18 +109,19 @@ def create_app(env='debug'):
     def get_user_id(email):
         return users_collection.find_one({ 'email' : email })
 
-    @app.route('/login')
-    def registration():
-        return render_template('login.html')
 
+    @app.route('/login', methods=['GET','POST'])
     @app.route('/register', methods=['GET', 'POST'])
     def register():
         """Registers the user."""
-        g.user = None
-        if g.user:
-            return render_template('registration.html')
         error = None
         if request.method == 'POST':
+            logged_user = get_user_id(request.form['email'])
+            print dir(logged_user)
+            if (logged_user):
+                flash('user found')
+                print url_for('index')
+                redirect(url_for('index'))
             if not request.form['email'] or \
                      '@' not in request.form['email']:
                 error = 'You have to enter a valid email address'
@@ -121,10 +134,12 @@ def create_app(env='debug'):
                 payload = {'from': 'Excited User <me@samples.mailgun.org>', 'to': request.form['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'http://quickhunt.herokuapp.com/activate_user/' + str(new_user_id) }
                 r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
                 flash('You were successfully registered. Confirm registration and login.')
+                session['logged_in'] = True
+                flash('logged in successfuly')
                 return render_template('login.html', error=error) 
         #flash('no luck ((' + request.method + error)
-        flash(error)
-        return render_template('registration.html', error=error)
+        flash('error:' + str(error))
+        return render_template('login.html', error=error)
 
 
     @app.route('/activate_user/<user_id>')
@@ -138,8 +153,8 @@ def create_app(env='debug'):
         else:
             if found_user['status'] == 'awaiting_confirm':
                 ### Setting the user status active here ###*
-                payload = {'from': 'Quick Hunt <me@samples.mailgun.org>', 'to': found_user['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'Subscription confirmed.' }
-                r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
+                confirm_mail = {'from': 'Quick Hunt <me@samples.mailgun.org>', 'to': found_user['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'Subscription confirmed.' }
+                r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=confirm_mail)
                 flash('user has been activated', 'info')
             elif found_user['status'] == 'active':
                 flash('user already activated', 'info')
@@ -147,8 +162,7 @@ def create_app(env='debug'):
 
 
     """ This is the API part of the equation """
-
-    @app.errorhandler(404)
+   @app.errorhandler(404)
     def not_found(error=None):
         message = {
                 'status': 404,
