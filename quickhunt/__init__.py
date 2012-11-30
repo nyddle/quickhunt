@@ -99,8 +99,8 @@ def create_app(env='debug'):
     @app.route('/logout')
     def logout():
         # remove the username from the session if it's there
-        session.pop('username', None)
-        return redirect(url_for('list'))
+        session.pop('logged_in', None)
+        return redirect(url_for('home'))
 
     @app.route('/registration')
     def registration():
@@ -138,7 +138,7 @@ def create_app(env='debug'):
                 flash('You were successfully registered. Confirm registration and login.')
                 session['logged_in'] = request.form['email']
                 flash('logged in successfuly')
-                return render_template('login.html', error=error) 
+                return redirect(url_for('home'))
         #flash('no luck ((' + request.method + error)
         flash('error:' + str(error))
         return render_template('login.html', error=error)
