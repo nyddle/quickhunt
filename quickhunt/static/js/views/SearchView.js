@@ -45,7 +45,6 @@ define([
           $.getJSON('/api/autocomplete/', {
             q: extractLast(request.term),
           }, function(data) {
-            console.log('q', request.term)
             response(data.result);
           });
         },
