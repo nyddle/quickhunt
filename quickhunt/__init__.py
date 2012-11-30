@@ -118,13 +118,13 @@ def create_app(env='debug'):
                 error = 'The username is already taken'
             else:
                 new_user_id = users_collection.save({ 'email' : request.form['email'], 'password' : request.form['password'], 'status' : 'awaiting confirm' })
-                payload = {'from': 'Excited User <me@samples.mailgun.org>', 'to': request.form['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'http://obscure-springs-3022.herokuapp.com/activate_user/' + str(new_user_id) }
+                payload = {'from': 'Excited User <me@samples.mailgun.org>', 'to': request.form['email'], 'subject': 'Quick Hunt account confirmation', 'text': 'http://quickhunt.herokuapp.com/activate_user/' + str(new_user_id) }
                 r = requests.post("https://api.mailgun.net/v2/app8222672.mailgun.org/messages", auth=HTTPBasicAuth('api', 'key-9m9vuzkafbyjqhm9ieq71n0lu9dgf9b9'), data=payload)
                 flash('You were successfully registered. Confirm registration and login.')
                 return render_template('login.html', error=error) 
-        flash('no luck ((' + request.method)
+        #flash('no luck ((' + request.method + error)
+        flash(error)
         return render_template('registration.html', error=error)
-
 
 
     @app.route('/activate_user/<user_id>')
