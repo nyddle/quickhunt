@@ -119,10 +119,11 @@ def create_app(env='debug'):
             if (logged_user):
                 if (request.form['password'] == logged_user['password']):
                     flash('Logged in as ' + logged_user['email'])
-                    return redirect(url_for('home'))
+                    session['logged_in'] = logged_user['email']
+                    return redirect(url_for('home', session=session))
                 else:
                     flash('Wrong password!')
-                    return redirect(url_for('login'))
+                    return redirect(url_for('register'))
             if not request.form['email'] or \
                      '@' not in request.form['email']:
                 error = 'You have to enter a valid email address'
