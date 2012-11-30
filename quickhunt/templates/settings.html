@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Квик Хант{% endblock %}
+{% block content %}
+
+  <div class="jobs">
+
+    <a class="icon_favorite" href="/favorites"><!--<span class="badge">4</span>--></a>
+    <h2>Настройки</h2>
+    <h3><a href="">Мои вакансии</a></h3>
+
+    <form action="" method="post">
+      <div class="jobs_list">
+            <ul class="job">
+              <li class="delete">
+                <a class="icon_delete" href="">del</a>
+              </li>
+              <li class="icon">
+                <div class="icon">
+                  <img src="{{company_logo}}" alt="{{company_name}}" width="50" height="50">
+                </div>
+              </li>
+              <li>
+                <a class="title" href="/jobs/{{_id}}">{{title}}</a>
+                <span class="company">{{company_name}}</span>
+              </li>
+              <li><input type="checkbox" name="publish"> Публикация</li>
+              <li><input type="checkbox" name="publish"> Продвижение</li>
+            </ul>
+      </div>
+    </form>
+
+    <div class="control">
+      <input type="submit" value="Сохранить">
+    </div>
+
+  </div>
+
+  <div class="sidebar">
+    <div class="filter_block">
+      <h2>Подписки</h2>
+      <ul>
+        <li>One <a href="">del</a></li>
+        <li>Two <a href="">del</a></li>
+        <li>Three <a href="">del</a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
