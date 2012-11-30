@@ -53,7 +53,12 @@ rel="stylesheet" type="text/css" />
       <div class="add_vacancy">
         <a href="/edit/new" class="button">Добавить вакансию</a>
         <span class="price">500 &#8399;</span>
-        <a href="/login">Вход</a>
+        <a href="/settings">{{session['logged_in']}}</a>
+        {% if session['logged_in'] %}
+          <a href="/logout">Выход</a>
+        {% else %}
+          <a href="/login">Вход</a>
+        {% endif %}
       </div>
       <h1 class="logo"><a href="/"><span>Квик Хант</span></a></h1>
     </div>
