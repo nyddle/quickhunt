@@ -19,9 +19,9 @@
       {% raw %}
       <script id="job_template" type="text/x-handlebars-template">
         {{#each jobs}}
-          <ul class="job {{special}}">
+          <ul data-jobid={{_id}} class="job {{special}}">
             <li class="favorite">
-              <a class="icon_favorite" href=""></a>
+              <a class="icon_favorite off" href=""></a>
             </li>
             <li class="icon">
               <div class="icon">

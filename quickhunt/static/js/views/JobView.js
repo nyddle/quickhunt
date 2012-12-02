@@ -9,6 +9,10 @@ define([
 
     el: $('.jobs_list'),
 
+    events: {
+      'click .icon_favorite': 'addFavorite'
+    },
+
     initialize: function() {
       var self = this;
       this.collection.fetch({
@@ -18,6 +22,21 @@ define([
           self.render();
         }
       });
+    },
+
+    addFavorite: function(event) {
+      var jobid = $(event.currentTarget).parent().parent().data('jobid');
+      this.collection.url = '/api/favorites/add/' + jobid;
+      this.collection.fetch({
+        success: function() {
+          $(event.currentTarget).toggleClass('on');
+        },
+        error: function() {
+          alert('не судьба!');
+        }
+      });
+      //this.collection.fetch({data: { page: 1 }});
+      event.preventDefault();
     },
 
     render: function() {

@@ -3,5 +3,12 @@ a.icon_favorite {
   display: inline-block;
   width: 19px;
   height: 16px;
-  background: url("https://d3dma7a8zw52bz.cloudfront.net/assets/icons/star-sprite-e886ab53ef30773a5e2d510cd10d2ec7.png") no-repeat 0 0;
+  background-image: url("https://d3dma7a8zw52bz.cloudfront.net/assets/icons/star-sprite-e886ab53ef30773a5e2d510cd10d2ec7.png");
+  background-repeat: no-repeat;
+}
+a.icon_favorite.off {
+  background-position: 0 -17px;
+}
+a.icon_favorite.on {
+  background-position: 0 0;
 }
