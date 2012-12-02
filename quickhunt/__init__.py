@@ -235,6 +235,31 @@ def create_app(env='debug'):
             js = {'error':'invalid argument'}
         return Response(js, status=200, mimetype='application/json')
 
+    @app.route('/api/favorites/add/<jobid>', methods = ['GET'])  # FIX IT (i mean get)
+    def add_to_favorites(jobid):
+        me = users_collection.find_one({ 'email' : session['logged_in'] })
+        if 'favorites' in me:
+            me['favorites'].append(jobid)
+        else:
+           me['favorites'] = [jobid]
+        js = users_collection.save(me)
+        print js
+        resp = Response({ 'reply' : js }, status=200, mimetype='application/json')
+        return resp
+ 
+    @app.route('/api/favorites/delete/<jobid>', methods = ['DELETE'])  # FIX IT (i mean get)
+    def remove_from_favorites(jobid):
+        me = users_collection.find_one({ 'email' : session['logged_in'] })
+        if 'favorites' in me:
+            favorites = me['favorites']
+            favoretes.remove(jobid)
+            me['favorites'] = favorites
+        js = users_collection.save(me)    
+        print js
+        resp = Response({ 'reply' : js }, status=200, mimetype='application/json')
+        return resp
+ 
+
     return app
 
 
